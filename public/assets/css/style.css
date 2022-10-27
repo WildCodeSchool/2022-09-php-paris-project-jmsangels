@@ -1,3 +1,43 @@
-body {
-    color: #f76c6c;
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgray;
+    height: 50px;
+    font-size: 20px;
+}
+
+header div p {
+    color: white;
+}
+
+header div:nth-child(2) p {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+header div:nth-child(3) p {
+    margin-right: 100px;
+}
+
+main {
+    height: calc(100vh - 50px - 45px);
+
+
+}
+
+footer {
+    background-color: black;
+    height: 45px;
+}
+
+footer p {
+    color: white;
 }

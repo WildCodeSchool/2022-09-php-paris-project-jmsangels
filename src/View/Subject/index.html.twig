@@ -2,16 +2,16 @@
 
 
 {% block title %}
-	Thème
+	Suject
 {% endblock %}
 
 {% block content %}
 	<br><br>
-	<h1>Liste des thèmes</h1>
+	<h1>Liste des sujets</h1>
 	<ul>
-		{% for them in thems %}
+		{% for subject in subjects %}
 			<li>
-				<a href="/subject?id={{ them.id }}">{{ them.name }}</a>
+				{{ subject.name }}
 			</li>
 		{% endfor %}
 	</ul>
