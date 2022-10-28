@@ -1,3 +1,18 @@
-body {
-    color: #f76c6c;
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+main p {
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+    font-size: 40px;
 }
