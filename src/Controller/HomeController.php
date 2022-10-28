@@ -11,9 +11,6 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
-        $themeManager = new ThemeManager();
-        $thems = $themeManager->selectAll();
-
-        return $this->twig->render('Home/index.html.twig', ['thems' => $thems]);
+        return $this->twig->render('Home/index.html.twig');
     }
 }
