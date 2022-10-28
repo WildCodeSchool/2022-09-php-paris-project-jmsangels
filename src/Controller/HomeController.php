@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\ThemeManager;
+
 class HomeController extends AbstractController
 {
     /**
