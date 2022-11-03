@@ -3,16 +3,39 @@
     margin: 0px;
 }
 
+/* 
 main {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
+} */
+
+
+header img {
+    height: 80px;
+    width: 80px;
 }
 
-main p {
-    font-family: 'Courier New', Courier, monospace;
-    color: green;
-    font-size: 40px;
+main nav div ul li {
+    /* border: 1px solid white; */
+    width: 200px;
 }
+
+/* 
+main nav div ul li a:hover {
+    background-color: lightgray;
+    color: blue;
+
+} */
+
+/* 
+.menu {
+    background-color: black;
+}
+
+.menu:hover {
+    background-color: lightgray;
+    color: blue;
+} */

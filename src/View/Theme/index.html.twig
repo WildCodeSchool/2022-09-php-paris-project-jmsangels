@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	KNOWLEDGE
+{% endblock %}
+
+{% block content %}
+	<nav class="navbar navbar-expand-md bg-dark">
+		<div class="container-fluid">
+			<ul
+				class="navbar-nav text-center">
+				{# {% for subject in subjects %} #}
+				{% for i in range(0,7) %}
+					<li class="nav-item">
+						<a class="menu border border-white nav-link text-white fs-5" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+					</li>
+				{% endfor %}
+				{% if subjects|length > 8 %}
+					<a class="ms-5 link-light fs-4 text-decoration-none" href="">>></a>
+
+
+				{% endif %}
+
+			</ul>
+		</div>
+	</nav>
+
+	{# {% if subjects|length > 8 %}
+				<div class="row flex-nowrap" style="border : 1px solid red; height : 150px; max-height : 150px">
+					<div class="col-11"></div>
+					<div class="col-1 flex-nowrap" style="border : 1px solid red; height : 150px; max-height : 150px">
+						{% for i in range(8, subjects|length - 1) %}
+							<a class="menu p-2 border border-white text-white nav-link fs-5" href="/subject?id={{ subjects[i].id }}">
+								{{ subjects[i].name }}</a>
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %} #}
+
+
+{% endblock %}
