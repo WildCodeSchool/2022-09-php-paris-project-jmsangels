@@ -2,12 +2,32 @@
     box-sizing: border-box;
     margin: 0px;
     font-family: gatwick;
+}
+
+/* header */
+
+header {
+    height: 60px;
+}
+
+header img {
+    height: 60px;
+    width: 80px;
+}
+
+.home-main {
+    height: calc(100vh - 60px - 40px);
+    min-height: 650px;
+}
+
+/* footer */
+
+footer {
+    height: 40px;
 
 }
 
-
 .bg-notions {
-    /* height: 80vh; */
     background-color: #D3D3D3;
 }
 
@@ -33,11 +53,6 @@
     resize: none;
 }
 
-header img {
-    height: 40px;
-    width: 40px;
-}
-
 nav div ul li a:hover {
     background-color: #D3D3D3;
     text-decoration: none;
@@ -53,58 +68,33 @@ nav div ul li a:hover {
 
 /* ---------- Home page ---------- */
 
-.container-fluid-theme {
+/* Utilisation bootstrap d-flex flex-row */
+/* .container-fluid-theme {
     display: flex;
     flex-direction: row;
-}
+} */
 
-.container-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.bg-clair {
     background-color: #f8f2f3;
-    height: 900px;
-    width: 50%;
+
 }
 
+.bg-green {
+    background-color: #223d3c;
+}
+
+/* 
 .logo-image-theme img {
     border-radius: 40px 40px 0 0;
-}
+} */
 
-
-.menu-themes {
-    background-color: #223d3c;
-    width: 50%;
-    height: 900px;
-}
-
-.menu-themes ul {
-    list-style-type: none;
-    position: relative;
-    left: 15%;
-    margin-top: 2em;
-}
-
-.menu-themes ul li {
-    margin: 50px 50px;
-}
-
-.menu-themes ul li a {
-    text-decoration: none;
-    color: white;
-    line-height: 6px;
-    font-size: 15pt;
-    font-family: gatwick;
-
-}
-
-hr {
+/* hr {
     width: 300px;
     color: white;
     height: 3px;
-}
+} */
 
-.menu-themes ul li a:hover {
+.menu-themes:hover {
     color: #3c7085;
 
 }

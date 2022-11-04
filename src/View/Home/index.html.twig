@@ -5,26 +5,26 @@
 {% endblock %}
 
 {% block content %}
-	<div class="container-fluid-theme">
-		<div class= "container-image">
-			<article class= "logo-image-theme">
-			
-				<img src="/../assets/images/knowledge.png" height="400" width="400">
-				
-			</article>
-		</div>
-		
-		<div class="menu-themes">
-			<ul>
-				{% for theme in themes %}
-					<li>
-						<a href="/theme?id={{theme.id}}">{{theme.name}}</a>
-						<hr noshade>
-					</li>
-				{% endfor %}
-			</ul>
+	<div class="home-main">
+		<div class="d-flex flex-row h-100">
+
+			<div class="col-8 d-flex justify-content-center bg-clair">
+				<div class="d-flex justify-content-center align-items-center">
+					<img class="rounded-bottom rounded-5" src="/../assets/images/knowledge.png" height="600" width="600">
+				</div>
+			</div>
+
+			<div class="col-4 d-flex justify-content-center bg-green">
+				<ul>
+					{% for theme in themes %}
+						<li class="border-bottom border-top bg-green fs-4 p-5">
+							<a class="menu-themes p-5" href="/theme?id={{theme.id}}">{{theme.name}}</a>
+							{# <hr noshade> #}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
 		</div>
 	</div>
-{% endblock %}
 
-
+</div>{% endblock %}
