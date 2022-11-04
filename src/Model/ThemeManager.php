@@ -18,10 +18,11 @@ class ThemeManager extends AbstractManager
     public function getThemeName(int $theme_id): string
     {
 
-        $statement = $this->pdo->prepare("SELECT name FROM " . self::TABLE . " WHERE `id` = :theme_id");
+        $statement = $this->pdo->prepare("SELECT name FROM " . self::TABLE . " WHERE id =:theme_id");
         $statement->bindValue('theme_id', $theme_id, PDO::PARAM_INT);
         $statement->execute();
+        $name = $statement->fetch();
 
-        return $statement->fetch()['name'];
+        return $name['name'];
     }
 }
