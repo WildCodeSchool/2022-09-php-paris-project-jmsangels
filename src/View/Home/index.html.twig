@@ -5,5 +5,26 @@
 {% endblock %}
 
 {% block content %}
-	<a href="/theme?id=1">theme</a>
+	<div class="container-fluid-theme">
+		<div class= "container-image">
+			<article class= "logo-image-theme">
+			
+				<img src="/../assets/images/knowledge.png" height="400" width="400">
+				
+			</article>
+		</div>
+		
+		<div class="menu-themes">
+			<ul>
+				{% for theme in themes %}
+					<li>
+						<a href="/theme?id={{theme.id}}">{{theme.name}}</a>
+						<hr noshade>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
 {% endblock %}
+
+

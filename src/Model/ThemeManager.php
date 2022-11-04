@@ -7,6 +7,7 @@ use PDO;
 class ThemeManager extends AbstractManager
 {
     public const TABLE = 'theme';
+
     public function selectAll(): array
     {
 
