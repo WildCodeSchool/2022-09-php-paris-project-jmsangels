@@ -11,6 +11,9 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
-        return $this->twig->render('Home/index.html.twig', ['headertitle' => 'KNOWLEDGE']);
+        $theme = new ThemeManager();
+        return $this->twig->render('Home/index.html.twig', 
+        ['headertitle' => 'KNOWLEDGE', 
+        'themes' => $theme->selectAll()]);
     }
 }
