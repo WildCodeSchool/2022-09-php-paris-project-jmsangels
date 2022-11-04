@@ -1,0 +1,87 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	KNOWLEDGE
+{% endblock %}
+
+{% block content %}
+	<nav class="navbar navbar-expand-md bg-dark">
+		<div class="container-fluid p-0">
+			<ul
+				class="navbar-nav text-center align-items-center">
+				{# {% for subject in subjects %} #}
+				{% for i in range(0,7) %}
+					<li class="nav-item">
+						<a class="nav-link text-white fs-5" href="/subject?idtheme={{ idtheme}}&idsubject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+					</li>
+				{% endfor %}
+				{% if subjects|length > 8 %}
+					<a class="ms-5 link-light fs-4 text-decoration-none" href="">>></a>
+					<a href=""><img src="assets/images/add2.png" alt="add"></a>
+				{% endif %}
+
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container-fluid p-0">
+		<div class="row m-0">
+
+			<div class="h-frame col-2">
+				<h2 class="p-3 mb-0 text-center">
+					Notions
+					<a href=""><img src="assets/images/add.png" alt="add"></a>
+
+				</h2>
+				<nav class="navbar">
+					<ul class="navbar-nav text-center w-100 ">
+						{% for notion in notions %}
+							<li class="nav-item">
+								<a class="border border-end-0 border-start-0 border-dark nav-link text-white fs-4" href="">{{ notion.name}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</nav>
+
+			</div>
+
+			<div class="col-10">
+
+				<div class="row mt-4 justify-content-around">
+
+					<div class="col-5">
+						<div class="card lecon-exemples-card bg-white mb-3">
+							<h4 class="card-header">Leçon</h4>
+							<div class="card-body m-0 p-0">
+								<textarea class="textarea-form form-control h-100" name="lecon"></textarea>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-5">
+						<div class="card lecon-exemples-card bg-white mb-3">
+							<h4 class="card-header">Exemples</h4>
+							<div class="card-body m-0 p-0">
+								<textarea class="textarea-form form-control h-100" name="exemples"></textarea>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row mt-3 justify-content-center">
+					<div class="col-11">
+						<div class="card exercices-card bg-white">
+							<h4 class="card-header">Exercices</h4>
+							<div
+								class="card-body">{# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

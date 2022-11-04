@@ -3,16 +3,58 @@
     margin: 0px;
 }
 
-main {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
+
+.h-frame {
+    height: 81vh;
+    background-color: #D3D3D3;
 }
 
-main p {
-    font-family: 'Courier New', Courier, monospace;
-    color: green;
-    font-size: 40px;
+.lecon-exemples-card {
+    height: 500px;
 }
+
+.exercices-card {
+    height: 200px;
+}
+
+.textarea-form {
+    border: none;
+    overflow: auto;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+}
+
+header img {
+    height: 80px;
+    width: 80px;
+}
+
+main nav div ul li {
+    /* border: 1px solid white; */
+    width: 200px;
+}
+
+
+nav div ul li a:hover {
+    background-color: #D3D3D3;
+    color: blue;
+
+}
+
+
+nav ul li a:hover {
+    background-color: black;
+    color: white;
+
+}
+
+/* 
+.menu {
+    background-color: black;
+}
+
+.menu:hover {
+    background-color: lightgray;
+    color: blue;
+} */
