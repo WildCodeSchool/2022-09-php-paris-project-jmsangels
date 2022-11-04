@@ -50,9 +50,10 @@
 				<nav class="navbar">
 
 					<ul class="navbar-nav text-center w-100">
+
 						{% for notion in notions %}
 							<li class="nav-item">
-								<a class="border border-end-0 border-start-0 border-dark nav-link text-white fs-4" href="">{{ notion.name}}</a>
+								<a class="hover-a border-bottom border-dark nav-link  fs-5" href="/notion/?idtheme={{ idtheme}}&idsubject={{ idsubject }}&idnotion={{notion.id}}">{{ notion.name}}</a>
 							</li>
 
 						{% endfor %}
@@ -69,7 +70,7 @@
 						<div class="card lecon-exemples-card bg-white mb-3">
 							<h4 class="card-header">Leçon</h4>
 							<div class="card-body m-0 p-0">
-								<textarea class="textarea-form form-control h-100" name="lecon"></textarea>
+								<textarea class="textarea-form form-control h-100" name="lecon">{{notion.lesson}}</textarea>
 							</div>
 						</div>
 					</div>
@@ -78,7 +79,7 @@
 						<div class="card lecon-exemples-card bg-white mb-3">
 							<h4 class="card-header">Exemples</h4>
 							<div class="card-body m-0 p-0">
-								<textarea class="textarea-form form-control h-100" name="exemples"></textarea>
+								<textarea class="textarea-form form-control h-100" name="exemples">{{notion.sample}}</textarea>
 							</div>
 						</div>
 					</div>

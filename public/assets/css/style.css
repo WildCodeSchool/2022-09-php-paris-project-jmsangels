@@ -37,13 +37,12 @@ width: 200px;
 
 nav div ul li a:hover {
     background-color: #D3D3D3;
+    text-decoration: none;
     color: blue;
 
 }
 
-
-nav ul li a:hover {
+.hover-a:hover {
     background-color: black;
     color: white;
-
 }
