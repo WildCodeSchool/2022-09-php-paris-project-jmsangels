@@ -1,18 +1,110 @@
 * {
     box-sizing: border-box;
     margin: 0px;
+    font-family: gatwick;
+
 }
 
-main {
-    height: 100vh;
+
+.bg-notions {
+    /* height: 80vh; */
+    background-color: #D3D3D3;
+}
+
+
+.text-color-green {
+    color: #223d3c;
+}
+
+
+.lecon-exemples-card {
+    height: 450px;
+}
+
+.exercices-card {
+    height: 250px;
+}
+
+.textarea-form {
+    border: none;
+    overflow: auto;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+}
+
+header img {
+    height: 40px;
+    width: 40px;
+}
+
+nav div ul li a:hover {
+    background-color: #D3D3D3;
+    text-decoration: none;
+    color: blue;
+
+}
+
+.hover-a:hover {
+    background-color: black;
+    color: white;
+}
+
+
+/* ---------- Home page ---------- */
+
+.container-fluid-theme {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
+    flex-direction: row;
 }
 
-main p {
-    font-family: 'Courier New', Courier, monospace;
-    color: green;
-    font-size: 40px;
+.container-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f2f3;
+    height: 900px;
+    width: 50%;
+}
+
+.logo-image-theme img {
+    border-radius: 40px 40px 0 0;
+}
+
+
+.menu-themes {
+    background-color: #223d3c;
+    width: 50%;
+    height: 900px;
+}
+
+.menu-themes ul {
+    list-style-type: none;
+    position: relative;
+    left: 15%;
+    margin-top: 2em;
+}
+
+.menu-themes ul li {
+    margin: 50px 50px;
+}
+
+.menu-themes ul li a {
+    text-decoration: none;
+    color: white;
+    line-height: 6px;
+    font-size: 15pt;
+    font-family: gatwick;
+
+}
+
+hr {
+    width: 300px;
+    color: white;
+    height: 3px;
+}
+
+.menu-themes ul li a:hover {
+    color: #3c7085;
+
 }
