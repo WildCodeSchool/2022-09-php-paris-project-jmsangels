@@ -4,17 +4,17 @@
 }
 
 
-.h-frame {
-    height: 81vh;
+.bg-notions {
+    /* height: 80vh; */
     background-color: #D3D3D3;
 }
 
 .lecon-exemples-card {
-    height: 500px;
+    height: 450px;
 }
 
 .exercices-card {
-    height: 200px;
+    height: 250px;
 }
 
 .textarea-form {
@@ -26,15 +26,14 @@
 }
 
 header img {
-    height: 80px;
-    width: 80px;
+    height: 40px;
+    width: 40px;
 }
 
+/* 
 main nav div ul li {
-    /* border: 1px solid white; */
-    width: 200px;
-}
-
+width: 200px;
+} */
 
 nav div ul li a:hover {
     background-color: #D3D3D3;
@@ -48,13 +47,3 @@ nav ul li a:hover {
     color: white;
 
 }
-
-/* 
-.menu {
-    background-color: black;
-}
-
-.menu:hover {
-    background-color: lightgray;
-    color: blue;
-} */

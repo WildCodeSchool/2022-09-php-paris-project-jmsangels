@@ -4,48 +4,64 @@
 	KNOWLEDGE
 {% endblock %}
 
-{% block content %}
+{% block navbar %}
 	<nav class="navbar navbar-expand-md bg-dark">
 		<div class="container-fluid p-0">
 			<ul
 				class="navbar-nav text-center align-items-center">
 				{# {% for subject in subjects %} #}
 				{% for i in range(0,7) %}
-					<li class="nav-item">
-						<a class="nav-link text-white fs-5" href="/subject?idtheme={{ idtheme}}&idsubject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+					<li class="col-3 nav-item">
+						<div class="">
+							<a class="nav-link text-white" href="/subject?idtheme={{ idtheme}}&idsubject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+						</div>
 					</li>
 				{% endfor %}
+			</ul>
+			<ul class="navbar-nav  align-items-center">>
+				<a class="" href="">📝</a>
+				<a class="ms-3" href="">🛠</a>
+				<a class="ms-3 " href="">🧻</a>
 				{% if subjects|length > 8 %}
-					<a class="ms-5 link-light fs-4 text-decoration-none" href="">>></a>
-					<a href=""><img src="assets/images/add2.png" alt="add"></a>
+					<a class="ms-5 me-2" href="">⏩</a>
 				{% endif %}
 
 			</ul>
 		</div>
 	</nav>
+{% endblock %}
 
+{% block content %}
 	<div class="container-fluid p-0">
 		<div class="row m-0">
 
-			<div class="h-frame col-2">
-				<h2 class="p-3 mb-0 text-center">
-					Notions
-					<a href=""><img src="assets/images/add.png" alt="add"></a>
+			<div class="col-2 bg-notions position-fixed h-100">
+				<div class="row align-items-center">
+					<div class="col-6 text-center">
+						<h2 class="p-3 mb-0">Notions</h2>
+					</div>
+					<div class="col-6 text-end">
+						<a class="" href="">📝</a>
+						<a class="ms-1" href="">🛠</a>
+						<a class="ms-1 " href="">🧻</a>
+					</div>
+				</div>
 
-				</h2>
 				<nav class="navbar">
-					<ul class="navbar-nav text-center w-100 ">
+
+					<ul class="navbar-nav text-center w-100">
 						{% for notion in notions %}
 							<li class="nav-item">
 								<a class="border border-end-0 border-start-0 border-dark nav-link text-white fs-4" href="">{{ notion.name}}</a>
 							</li>
+
 						{% endfor %}
 					</ul>
 				</nav>
 
 			</div>
 
-			<div class="col-10">
+			<div class="col-10" style="margin-left : 290px">
 
 				<div class="row mt-4 justify-content-around">
 
