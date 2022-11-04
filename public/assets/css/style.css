@@ -85,7 +85,7 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     background-color: #f8f2f3; 
-    height: 580px;
+    height: 900px;
     width: 50%; 
 }
 
@@ -97,7 +97,7 @@ nav ul li a:hover {
 .menu-themes{
     background-color: #223d3c;
     width: 50%;
-    height: 580px;
+    height: 900px;
 }
 
 .menu-themes ul{
