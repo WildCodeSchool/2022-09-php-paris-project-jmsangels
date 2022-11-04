@@ -2,23 +2,27 @@
     box-sizing: border-box;
     margin: 0px;
     font-family: gatwick;
-    
+
 }
+
+
+.bg-notions {
+    /* height: 80vh; */
+    background-color: #D3D3D3;
+}
+
+
 .text-color-green {
     color: #223d3c;
 }
 
-.h-frame {
-    height: 80vh;
-    background-color: #D3D3D3;
-}
 
 .lecon-exemples-card {
-    height: 500px;
+    height: 450px;
 }
 
 .exercices-card {
-    height: 200px;
+    height: 250px;
 }
 
 .textarea-form {
@@ -30,105 +34,77 @@
 }
 
 header img {
-    height: 80px;
-    width: 80px;
+    height: 40px;
+    width: 40px;
 }
-
-main nav div ul li {
-    /* border: 1px solid white; */
-    width: 200px;
-}
-
 
 nav div ul li a:hover {
     background-color: #D3D3D3;
+    text-decoration: none;
     color: blue;
 
 }
 
-
-nav ul li a:hover {
+.hover-a:hover {
     background-color: black;
     color: white;
-
 }
-
-/* 
-.menu {
-    background-color: black;
-}
-
-.menu:hover {
-    background-color: lightgray;
-    color: blue;
-} */
 
 
 /* ---------- Home page ---------- */
 
-/*.container-fluid{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    
-}
-*/
-
-.container-fluid-theme{
+.container-fluid-theme {
     display: flex;
     flex-direction: row;
 }
 
-.container-image{
+.container-image {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f8f2f3; 
+    background-color: #f8f2f3;
     height: 900px;
-    width: 50%; 
+    width: 50%;
 }
 
-.logo-image-theme img{
+.logo-image-theme img {
     border-radius: 40px 40px 0 0;
 }
 
 
-.menu-themes{
+.menu-themes {
     background-color: #223d3c;
     width: 50%;
     height: 900px;
 }
 
-.menu-themes ul{
-    list-style-type:none;
+.menu-themes ul {
+    list-style-type: none;
     position: relative;
-	left: 15%;
+    left: 15%;
     margin-top: 2em;
 }
 
-.menu-themes ul li{
+.menu-themes ul li {
     margin: 50px 50px;
 }
 
-.menu-themes ul li a{
+.menu-themes ul li a {
     text-decoration: none;
     color: white;
-    line-height: 6px;  
+    line-height: 6px;
     font-size: 15pt;
     font-family: gatwick;
-    
+
 }
 
-hr{
-    width:300px ;
-     color:white;
-     height:3px;
+hr {
+    width: 300px;
+    color: white;
+    height: 3px;
 }
 
-.menu-themes ul li a:hover
-
-{
+.menu-themes ul li a:hover {
     color: #3c7085;
-   
+
 }
