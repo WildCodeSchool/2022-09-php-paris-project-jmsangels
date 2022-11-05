@@ -63,9 +63,9 @@
 					{% for notionitem in notions %}
 
 						{% if notion.id == notionitem.id %}
-							<a class="menu-item active-notion list-group-item border-top-0 border-end-0 fs-5 ps-5 p-3" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
+							<a class="menu-item active-notion list-group-item border-top-0 fs-5 ps-5 p-3 ms-1 me-1" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
 						{% else %}
-							<a class="menu-item list-group-item border-top-0 border-end-0 bg-clair fs-5 ps-5 p-3" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
+							<a class="menu-item list-group-item border-top-0  bg-clair fs-5 ps-5 p-3 ms-1 me-1" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
 						{% endif %}
 
 					{% endfor %}
@@ -82,9 +82,9 @@
 					<div class="card lecon-exemples-card bg-white mb-3">
 						<h4 class="card-header">Leçon</h4>
 						<div
-							class="card-body m-0 p-0">
+							class="card-body">
 							{# <textarea class="textarea-form form-control h-100" name="lecon">{{notion.lesson}}</textarea> #}
-							<p class="">{{notion.lesson}}</p>
+							<p class="card-body">{{notion.lesson}}</p>
 						</div>
 					</div>
 				</div>
@@ -93,9 +93,9 @@
 					<div class="card lecon-exemples-card bg-white">
 						<h4 class="card-header">Exemples</h4>
 						<div
-							class="card-body m-0 p-0">
+							class="card-body">
 							{# <textarea class="textarea-form form-control h-100" name="exemples">{{notion.sample}}</textarea> #}
-							<p class="">{{notion.sample}}</p>
+							<p class="card-text">{{notion.sample}}</p>
 						</div>
 					</div>
 				</div>
