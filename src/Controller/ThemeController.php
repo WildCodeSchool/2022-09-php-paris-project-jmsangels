@@ -4,25 +4,18 @@ namespace App\Controller;
 
 use App\Model\SubjectManager;
 use App\Model\ThemeManager;
+use App\Model\NotionManager;
 
 class ThemeController extends AbstractController
 {
     /**
-     * Display home page
+     * Display Subject List, Notion List & select first element
      */
-    public function index($theme_id): string
+    public function index(string $theme_id): string
     {
-        $theme = new ThemeManager();
-
-        $subjects = new SubjectManager();
-
         return $this->twig->render(
             'Theme/index.html.twig',
-            [
-                'headertitle' => $theme->getThemeName($theme_id),
-                'subjects' => $subjects->selectAll($theme_id),
-                'idtheme' => $theme_id
-            ]
+            $this->renderNotionOutput('theme', (int)$theme_id)
         );
     }
 }

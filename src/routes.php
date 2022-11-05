@@ -9,6 +9,6 @@
 return [
     '' => ['HomeController', 'index'],
     'theme' => ['ThemeController', 'index', ['id']],
-    'subject' => ['SubjectController', 'index', ['idtheme', 'idsubject']],
-    'notion' => ['NotionController', 'index', ['idtheme', 'idsubject', 'idnotion']]
+    'subject' => ['SubjectController', 'index', ['idsubject']],
+    'notion' => ['NotionController', 'index', ['idnotion']]
 ];

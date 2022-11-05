@@ -1,7 +1,13 @@
 * {
     box-sizing: border-box;
     margin: 0px;
+    padding: 0px;
     font-family: gatwick;
+}
+
+body {
+    overflow-x: hidden;
+
 }
 
 /* header */
@@ -20,15 +26,10 @@ header img {
     min-height: 650px;
 }
 
-/* footer */
 
 footer {
     height: 40px;
 
-}
-
-.bg-notions {
-    background-color: #D3D3D3;
 }
 
 
@@ -36,6 +37,8 @@ footer {
     color: #223d3c;
 }
 
+
+/* ---------- Theme page ---------- */
 
 .lecon-exemples-card {
     height: 450px;
@@ -53,17 +56,31 @@ footer {
     resize: none;
 }
 
-nav div ul li a:hover {
-    background-color: #D3D3D3;
-    text-decoration: none;
-    color: blue;
 
+.text-whit {
+    color: white;
 }
 
-.hover-a:hover {
+.menu-item:hover {
+    color: red;
+}
+
+.active-subject {
+    background-color: #f8f2f3;
+    color: black;
+}
+
+
+.active-notion {
     background-color: black;
     color: white;
 }
+
+.list-group-item a {
+    text-decoration: none;
+    color: #223d3c;
+}
+
 
 
 /* ---------- Home page ---------- */

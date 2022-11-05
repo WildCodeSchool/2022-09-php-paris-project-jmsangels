@@ -29,4 +29,13 @@ class NotionManager extends AbstractManager
 
         return $statement->fetch();
     }
+
+    public function getSubjectId(int $notion_id): int
+    {
+        $statement = $this->pdo->prepare("SELECT subject_id FROM " . self::TABLE . " WHERE `id` = :idnotion");
+        $statement->bindValue('idnotion', $notion_id, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch()['subject_id'];
+    }
 }

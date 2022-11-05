@@ -20,7 +20,7 @@ class SubjectManager extends AbstractManager
         // return (int)$this->pdo->lastInsertId();
     }
 
-    public function getIDTheme(int $subject_id): int
+    public function getThemeId(int $subject_id): int
     {
 
         $statement = $this->pdo->prepare("SELECT theme_id FROM " . self::TABLE . " WHERE `id` = :idsubject");
