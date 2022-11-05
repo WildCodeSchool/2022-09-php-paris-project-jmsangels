@@ -65,7 +65,7 @@ abstract class AbstractController
                 $idtheme = $subjectsObj->getThemeId($idsubject);
                 $subjects = $subjectsObj->selectAll($idtheme);
                 $notions = $notionsObj->selectAll($idsubject);
-                $notion = $notions[$id];
+                $notion = $notions[$id - 1];
                 break;
         }
 
@@ -77,8 +77,7 @@ abstract class AbstractController
             'subjects' => $subjects,
             'notions' => $notions,
             'notion' => $notion,
-            'idsubject' => $idsubject,
-            'idnotion' => $idnotion
+            'idsubject' => $idsubject
         ]
         );
     }

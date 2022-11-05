@@ -14,9 +14,9 @@
 					<li class="col-3 nav-item">
 						<div class="">
 							{% if idsubject == subjects[i].id %}
-								<a class="menu-item nav-link fs-5 active-subject" href="/subject?idsubject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+								<a class="menu-item nav-link fs-5 active-subject" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 							{% else %}
-								<a class="menu-item text-whit nav-link fs-5" href="/subject?idsubject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+								<a class="menu-item text-whit nav-link fs-5" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 							{% endif %}
 						</div>
 					</li>
@@ -48,7 +48,7 @@
 			<div class="row mt-5 ms-0 align-items-center  w-100">
 
 				<div class="col-6 mt-3 text-center">
-					<h3 class="">NOTIONS</h3>
+					<h4 class="">Notions</h4>
 				</div>
 
 				<div class="col-6 mt-3 text-end">
@@ -59,13 +59,12 @@
 			</div>
 
 			<div class="list-group text-center mt-5">
+				{% for notionitem in notions %}
 
-				{% for notion in notions %}
-
-					{% if idnotion == notion.id %}
-						<a class="menu-item active-notion list-group-item border-top-0 border-end-0 fs-5 p-3" href="/notion/?idnotion={{notion.id}}">{{ notion.name}}</a>
+					{% if notion.id == notionitem.id %}
+						<a class="menu-item active-notion list-group-item border-top-0 border-end-0 fs-5 p-3" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
 					{% else %}
-						<a class="menu-item list-group-item border-top-0 border-end-0 bg-clair fs-5 p-3" href="/notion/?idnotion={{notion.id}}">{{ notion.name}}</a>
+						<a class="menu-item list-group-item border-top-0 border-end-0 bg-clair fs-5 p-3" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
 					{% endif %}
 
 				{% endfor %}
@@ -81,8 +80,10 @@
 				<div class="col-5 mt-5">
 					<div class="card lecon-exemples-card bg-white mb-3">
 						<h4 class="card-header">Leçon</h4>
-						<div class="card-body m-0 p-0">
-							<textarea class="textarea-form form-control h-100" name="lecon">{{notion.lesson}}</textarea>
+						<div
+							class="card-body m-0 p-0">
+							{# <textarea class="textarea-form form-control h-100" name="lecon">{{notion.lesson}}</textarea> #}
+							<p class="">{{notion.lesson}}</p>
 						</div>
 					</div>
 				</div>
@@ -90,8 +91,10 @@
 				<div class="col-5 mt-5">
 					<div class="card lecon-exemples-card bg-white">
 						<h4 class="card-header">Exemples</h4>
-						<div class="card-body m-0 p-0">
-							<textarea class="textarea-form form-control h-100" name="exemples">{{notion.sample}}</textarea>
+						<div
+							class="card-body m-0 p-0">
+							{# <textarea class="textarea-form form-control h-100" name="exemples">{{notion.sample}}</textarea> #}
+							<p class="">{{notion.sample}}</p>
 						</div>
 					</div>
 				</div>
@@ -103,7 +106,7 @@
 					<div class="card exercices-card bg-white">
 						<h4 class="card-header">Exercices</h4>
 						<div class="card-body">
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<p class="card-text">Exerices</p>
 						</div>
 					</div>
 
