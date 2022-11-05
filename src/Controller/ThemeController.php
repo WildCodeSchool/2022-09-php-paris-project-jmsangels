@@ -13,6 +13,8 @@ class ThemeController extends AbstractController
      */
     public function index(string $theme_id): string
     {
+        if (!is_numeric($theme_id)) return ("Lost!");
+
         return $this->twig->render(
             'Theme/index.html.twig',
             $this->renderNotionOutput('theme', (int)$theme_id)

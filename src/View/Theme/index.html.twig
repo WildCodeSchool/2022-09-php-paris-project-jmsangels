@@ -45,10 +45,10 @@
 
 		<div class="col-2 bg-clair position-fixed h-100" style="width : 250px">
 
-			<div class="row mt-5 ms-0 align-items-center  w-100">
+			<div class="row mt-5 ms-0 align-items-center border border-2 border-top-0 border-end-0   w-100">
 
 				<div class="col-6 mt-3 text-center">
-					<h4 class="">Notions</h4>
+					<h4 class="ps-4">Notions</h4>
 				</div>
 
 				<div class="col-6 mt-3 text-end">
@@ -58,19 +58,20 @@
 				</div>
 			</div>
 
-			<div class="list-group text-center mt-5">
-				{% for notionitem in notions %}
+			<div class="row">
+				<div class="list-group mt-5">
+					{% for notionitem in notions %}
 
-					{% if notion.id == notionitem.id %}
-						<a class="menu-item active-notion list-group-item border-top-0 border-end-0 fs-5 p-3" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
-					{% else %}
-						<a class="menu-item list-group-item border-top-0 border-end-0 bg-clair fs-5 p-3" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
-					{% endif %}
+						{% if notion.id == notionitem.id %}
+							<a class="menu-item active-notion list-group-item border-top-0 border-end-0 fs-5 ps-5 p-3" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
+						{% else %}
+							<a class="menu-item list-group-item border-top-0 border-end-0 bg-clair fs-5 ps-5 p-3" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
+						{% endif %}
 
-				{% endfor %}
+					{% endfor %}
 
+				</div>
 			</div>
-
 		</div>
 
 		<div class="col-10" style="margin-left : 290px">

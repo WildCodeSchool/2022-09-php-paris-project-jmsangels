@@ -5,6 +5,11 @@
     font-family: gatwick;
 }
 
+:root {
+    --color-green: #223d3c;
+    --color-mauve: #f8f2f3;
+}
+
 body {
     overflow-x: hidden;
 
@@ -34,7 +39,7 @@ footer {
 
 
 .text-color-green {
-    color: #223d3c;
+    color: var(--color-green);
 }
 
 
@@ -66,19 +71,19 @@ footer {
 }
 
 .active-subject {
-    background-color: #f8f2f3;
+    background-color: var(--color-mauve);
     color: black;
+    ;
 }
 
-
 .active-notion {
-    background-color: black;
+    background-color: var(--color-green);
     color: white;
 }
 
 .list-group-item a {
     text-decoration: none;
-    color: #223d3c;
+    color: var(--color-green);
 }
 
 
@@ -92,7 +97,7 @@ footer {
 } */
 
 .bg-clair {
-    background-color: #f8f2f3;
+    background-color: var(--color-mauve);
 
 }
 
@@ -112,6 +117,6 @@ footer {
 } */
 
 .menu-themes:hover {
-    color: #3c7085;
+    color: var(--color-mauve);
 
 }

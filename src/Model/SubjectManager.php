@@ -27,6 +27,8 @@ class SubjectManager extends AbstractManager
         $statement->bindValue('idsubject', $subject_id, PDO::PARAM_INT);
         $statement->execute();
 
-        return (int)$statement->fetch()['theme_id'];
+        $theme = $statement->fetch();
+
+        return $theme ? (int)$theme['theme_id'] : 0;
     }
 }

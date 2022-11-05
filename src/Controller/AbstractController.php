@@ -38,16 +38,22 @@ abstract class AbstractController
         $notionsObj = new NotionManager();
 
         $idsubject = $idtheme = $idnotion = 0;
-        $notion = [];
+        $notion = $notions = $subjects = [];
 
         switch ($idname) {
             case 'theme':
                 $idtheme = $id;
+
                 $subjects = $subjectsObj->selectAll($idtheme);
-                $idsubject = $subjects[0]['id'];
-                $notions = $notionsObj->selectAll($idsubject);
-                $idnotion = $notions[0]['id'];
-                $notion = $notions[0];
+
+                if (!empty($subjects)) {
+                    $idsubject = $subjects[0]['id'];
+                    $notions = $notionsObj->selectAll($idsubject);
+                }
+                if (!empty($notions)) {
+                    $idnotion = $notions[0]['id'];
+                    $notion = $notions[0];
+                }
                 break;
             case 'subject':
                 $idsubject = $id;
@@ -62,10 +68,12 @@ abstract class AbstractController
             case 'notion':
                 $idnotion = $id;
                 $idsubject = $notionsObj->getSubjectId($idnotion);
-                $idtheme = $subjectsObj->getThemeId($idsubject);
-                $subjects = $subjectsObj->selectAll($idtheme);
-                $notions = $notionsObj->selectAll($idsubject);
-                $notion = $notions[$id - 1];
+                if ($idsubject) {
+                    $idtheme = $subjectsObj->getThemeId($idsubject);
+                    $subjects = $subjectsObj->selectAll($idtheme);
+                    $notions = $notionsObj->selectAll($idsubject);
+                    $notion = $notions[$id - 1];
+                }
                 break;
         }
 

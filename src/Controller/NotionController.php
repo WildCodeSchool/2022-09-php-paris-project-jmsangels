@@ -14,6 +14,7 @@ class NotionController extends AbstractController
     public function index(string $notion_id): string
     {
 
+        if (!is_numeric($notion_id)) return ("Lost!");
         return $this->twig->render(
             'Theme/index.html.twig',
             $this->renderNotionOutput('notion', (int)$notion_id)

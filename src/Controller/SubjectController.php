@@ -13,6 +13,9 @@ class SubjectController extends AbstractController
      */
     public function index(string $subject_id): string
     {
+
+        if (!is_numeric($subject_id)) return ("Lost!");
+
         return $this->twig->render(
             'Theme/index.html.twig',
             $this->renderNotionOutput('subject', (int)$subject_id)

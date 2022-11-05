@@ -23,7 +23,6 @@ class ThemeManager extends AbstractManager
         $statement->bindValue('theme_id', $theme_id, PDO::PARAM_INT);
         $statement->execute();
         $name = $statement->fetch();
-
-        return $name['name'];
+        return !empty($name) ? $name['name'] : "";
     }
 }
