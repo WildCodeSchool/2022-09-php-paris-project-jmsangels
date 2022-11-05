@@ -72,8 +72,12 @@ abstract class AbstractController
                     $idtheme = $subjectsObj->getThemeId($idsubject);
                     $subjects = $subjectsObj->selectAll($idtheme);
                     $notions = $notionsObj->selectAll($idsubject);
-                    $notion = $notions[$id - 1];
+
+                    foreach ($notions as $notionitem) {
+                        if ($notionitem['id'] === $idnotion) $notion = $notionitem;
+                    }
                 }
+
                 break;
         }
 

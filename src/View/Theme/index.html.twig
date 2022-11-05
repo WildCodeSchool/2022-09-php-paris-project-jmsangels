@@ -60,14 +60,21 @@
 
 			<div class="">
 				<div class="list-group mt-5 notion-scroll">
+					{% set first = 1 %}
+
 					{% for notionitem in notions %}
 
 						{% if notion.id == notionitem.id %}
 							<a class="menu-item active-notion list-group-item border-top-0 fs-5 ps-5 p-3 ms-1 me-1" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
 						{% else %}
-							<a class="menu-item list-group-item border-top-0  bg-clair fs-5 ps-5 p-3 ms-1 me-1" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
+							{% if first %}
+								<a class="menu-item list-group-item bg-clair fs-5 ps-5 p-3 ms-1 me-1" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
+							{% else %}
+								<a class="menu-item list-group-item border-top-0  bg-clair fs-5 ps-5 p-3 ms-1 me-1" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
+							{% endif %}
 						{% endif %}
 
+						{% set first = 0 %}
 					{% endfor %}
 
 				</div>
