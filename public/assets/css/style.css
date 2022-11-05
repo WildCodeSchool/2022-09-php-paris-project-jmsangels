@@ -31,12 +31,10 @@ header img {
     min-height: 650px;
 }
 
-
 footer {
     height: 40px;
-
+    border: 1px solid var(--color-mauve);
 }
-
 
 .text-color-green {
     color: var(--color-green);
@@ -45,12 +43,17 @@ footer {
 
 /* ---------- Theme page ---------- */
 
+.notion-scroll {
+    height: calc(100vh - 60px - 250px);
+    overflow-y: auto;
+}
+
 .lecon-exemples-card {
     height: 450px;
 }
 
 .exercices-card {
-    height: 250px;
+    height: 300px;
 }
 
 .textarea-form {
