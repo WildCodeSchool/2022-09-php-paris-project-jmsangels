@@ -1,0 +1,46 @@
+/* ---------- Theme page ---------- */
+
+.notion-scroll {
+    height: calc(100vh - 60px - 250px);
+    overflow-y: auto;
+}
+
+.notion-margin {
+    margin-left: 290px;
+}
+
+.lecon-exemples-card {
+    height: 450px;
+}
+
+.exercices-card {
+    height: 300px;
+}
+
+.textarea-form {
+    border: none;
+    overflow: auto;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+}
+
+.menu-item:hover {
+    color: red;
+}
+
+.active-subject {
+    background-color: var(--color-mauve);
+    color: var(--color-green);
+    ;
+}
+
+.active-notion {
+    background-color: var(--color-green);
+    color: white;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: var(--color-green);
+}

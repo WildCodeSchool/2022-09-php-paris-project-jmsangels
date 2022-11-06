@@ -1,0 +1,22 @@
+/* ---------- Home page ---------- */
+
+/* Utilisation bootstrap d-flex flex-row */
+/* .container-fluid-theme {
+    display: flex;
+    flex-direction: row;
+} */
+/* 
+.logo-image-theme img {
+    border-radius: 40px 40px 0 0;
+} */
+
+/* hr {
+    width: 300px;
+    color: white;
+    height: 3px;
+} */
+
+.menu-themes:hover {
+    color: var(--color-mauve);
+
+}

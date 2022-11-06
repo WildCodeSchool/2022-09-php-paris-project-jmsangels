@@ -40,64 +40,13 @@ footer {
     color: var(--color-green);
 }
 
-
-/* ---------- Theme page ---------- */
-
-.notion-scroll {
-    height: calc(100vh - 60px - 250px);
-    overflow-y: auto;
-}
-
-.lecon-exemples-card {
-    height: 450px;
-}
-
-.exercices-card {
-    height: 300px;
-}
-
-.textarea-form {
-    border: none;
-    overflow: auto;
-    outline: none;
-    box-shadow: none;
-    resize: none;
-}
-
-
-.text-whit {
-    color: white;
-}
-
-.menu-item:hover {
-    color: red;
-}
-
-.active-subject {
-    background-color: var(--color-mauve);
-    color: black;
-    ;
-}
-
-.active-notion {
-    background-color: var(--color-green);
-    color: white;
-}
-
-.list-group-item a {
-    text-decoration: none;
+.text-color-clair {
     color: var(--color-green);
 }
 
-
-
-/* ---------- Home page ---------- */
-
-/* Utilisation bootstrap d-flex flex-row */
-/* .container-fluid-theme {
-    display: flex;
-    flex-direction: row;
-} */
+.text-color-white {
+    color: white;
+}
 
 .bg-clair {
     background-color: var(--color-mauve);
@@ -106,20 +55,4 @@ footer {
 
 .bg-green {
     background-color: #223d3c;
-}
-
-/* 
-.logo-image-theme img {
-    border-radius: 40px 40px 0 0;
-} */
-
-/* hr {
-    width: 300px;
-    color: white;
-    height: 3px;
-} */
-
-.menu-themes:hover {
-    color: var(--color-mauve);
-
 }

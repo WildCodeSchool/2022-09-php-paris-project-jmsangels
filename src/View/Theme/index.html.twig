@@ -4,6 +4,12 @@
 	KNOWLEDGE
 {% endblock %}
 
+
+{% block css %}
+	<link rel="stylesheet" href="/assets/css/theme.css">
+{% endblock %}
+
+
 {% block navbar %}
 	<nav class="navbar navbar-expand-md bg-green p-0">
 		<div class="container-fluid p-0">
@@ -16,7 +22,7 @@
 							{% if idsubject == subjects[i].id %}
 								<a class="menu-item nav-link fs-5 active-subject" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 							{% else %}
-								<a class="menu-item text-whit nav-link fs-5" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+								<a class="menu-item text-color-white nav-link fs-5" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 							{% endif %}
 						</div>
 					</li>
@@ -81,7 +87,7 @@
 			</div>
 		</div>
 
-		<div class="col-10" style="margin-left : 290px">
+		<div class="col-10 notion-margin">
 
 			<div class="row mt-3 justify-content-around">
 
