@@ -31,7 +31,7 @@
 
 			<ul class="navbar-nav  align-items-center">>
 				{% if subjects|length > 8 %}
-					{# <a class="ms-5 me-2" href="">⏩</a> #}
+
 
 					<li class="nav-item dropdown me-3">
 						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
@@ -138,10 +138,19 @@
 			<div class="row mt-3 justify-content-center">
 
 				<div class="col-11">
-					<div class="card exercices-card bg-white">
-						<h4 class="card-header">Exercices</h4>
+					<div class="card exercices-card">
+						<div class="card-header d-flex justify-content-between align-items-center">
+							<h4>Exercices</h4>
+							<div>
+								<a class="fs-5" href="/exercise?idnotion={{notion.id}}">📝</a>
+								<a class="fs-5 ms-3" href="">🛠</a>
+								<a class="fs-5 ms-3 me-3 " href="">🧻</a>
+							</div>
+						</div>
+
 						<div class="card-body">
-							<p class="card-text">Exerices</p>
+							<p class="card-text">Exerices ...</p>
+
 						</div>
 					</div>
 

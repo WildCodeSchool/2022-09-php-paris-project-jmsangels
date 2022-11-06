@@ -10,5 +10,7 @@ return [
     '' => ['HomeController', 'index'],
     'theme' => ['ThemeController', 'index', ['id']],
     'subject' => ['SubjectController', 'index', ['id']],
-    'notion' => ['NotionController', 'index', ['id']]
+    'notion' => ['NotionController', 'index', ['id']],
+    'exercise' => ['ExerciseController', 'index', ['idnotion']],
+
 ];

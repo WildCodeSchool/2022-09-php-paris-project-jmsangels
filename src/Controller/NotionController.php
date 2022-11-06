@@ -49,10 +49,5 @@ class NotionController extends AbstractController
                 'idsubject' => $subject_id
             ]
         );
-
-        return $this->twig->render(
-            'Theme/index.html.twig',
-            $this->renderNotionOutput('notion', (int)$notion_id)
-        );
     }
 }
