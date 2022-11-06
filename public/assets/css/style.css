@@ -26,7 +26,7 @@ header img {
     width: 80px;
 }
 
-.home-main {
+.body-size {
     height: calc(100vh - 60px - 40px);
     min-height: 650px;
 }
