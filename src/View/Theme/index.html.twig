@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="/assets/css/theme.css">
 {% endblock %}
 
+
 {% block navbar %}
 	{% include 'Theme/nav.html.twig' %}
 {% endblock %}
@@ -15,7 +16,7 @@
 {% block content %}
 
 	<div
-		class="container-fluid p-0">
+		class="container-fluid p-0 overflow-hidden">
 		{# <div class="row"> #}
 
 		{% include 'Theme/notionlist.html.twig' %}
@@ -24,5 +25,6 @@
 
 		{# </div> #}
 	</div>
+
 
 {% endblock %}

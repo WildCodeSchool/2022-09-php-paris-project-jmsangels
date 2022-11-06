@@ -1,27 +1,27 @@
 /* ---------- Theme page ---------- */
 
-.notion-scroll {
-    height: calc(100vh - 60px - 250px);
-    overflow-y: auto;
+.body-theme-h {
+    height: calc(100vh - 60px - 40px - 40px);
 }
 
-.notion-margin {
-    margin-left: 290px;
+.nav-h {
+    height: 40px;
+}
+
+.aside-w {
+    width: 300px;
+}
+
+.body-margin {
+    margin-left: 300px;
 }
 
 .lecon-exemples-card {
     height: 450px;
-    /* margin-bottom: 100px; */
 }
 
 .exercices-card {
-    height: 300px;
-}
-
-.body-height {
-    /* border: 1px solid red; */
-    /* min-height: 100vh;
-    max-height: 80vh; */
+    height: 200px;
 }
 
 .textarea-form {
@@ -43,17 +43,6 @@ a:hover,
     overflow-y: auto;
 }
 
-/* 
-.active-subject {
-    background-color: var(--color-mauve);
-    color: var(--color-green);
-    ;
-} */
-
-/* 
-.active-notion {
-    background-color: var(--color-green);
-} */
 
 .list-group-item a {
     text-decoration: none;
