@@ -25,7 +25,13 @@
     resize: none;
 }
 
+/* 
 .menu-item:hover {
+    color: red;
+} */
+
+a:hover,
+.hover:hover {
     color: red;
 }
 
@@ -34,18 +40,18 @@
     overflow-y: auto;
 }
 
+/* 
 .active-subject {
     background-color: var(--color-mauve);
     color: var(--color-green);
     ;
-}
+} */
 
+/* 
 .active-notion {
     background-color: var(--color-green);
-    color: white;
-}
+} */
 
 .list-group-item a {
     text-decoration: none;
-    color: var(--color-green);
 }
