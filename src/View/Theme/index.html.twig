@@ -30,26 +30,37 @@
 			</ul>
 
 			<ul class="navbar-nav  align-items-center">>
+				{% if subjects|length > 8 %}
+					{# <a class="ms-5 me-2" href="">⏩</a> #}
+
+					<li class="nav-item dropdown me-3">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+							<span class="bg-clair navbar-toggler-icon"></span>
+						</a>
+
+						<ul class="dropdown-menu bg-green">
+							{% for i in range(8,subjects|length) %}
+								<li>
+									<a class="menu-item text-color-white nav-link fs-5" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+								</li>
+
+							{% endfor %}
+
+						</ul>
+					</li>
+
+				{% endif %}
+
 				<a class="" href="">📝</a>
 				<a class="ms-3" href="">🛠</a>
-				<a class="ms-3 " href="">🧻</a>
-				{% if subjects|length > 8 %}
-					<a class="ms-5 me-2" href="">⏩</a>
-				{% endif %}
+				<a class="ms-3 me-3 " href="">🧻</a>
 
 			</ul>
 		</div>
-
 	</nav>
 {% endblock %}
-
 {% block content %}
-
-	<div
-		class="container-fluid p-0">
-		{# <div class="row m-0"> #}
-
-		<div class="col-2 bg-clair position-fixed">
+	<divclass="container-fluidp-0">{# <div class="row m-0"> #}<div class="col-2 bg-clair position-fixed">
 
 			<div class="row mt-5 ms-0 align-items-center border border-2 border-top-0 border-end-0   w-100">
 
@@ -86,7 +97,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="col-10 notion-margin">
 
 			<div class="row mt-3 justify-content-around">
@@ -126,9 +136,5 @@
 
 				</div>
 			</div>
-
-		</div>
-		{# </div> #}
-	</div>
-
+		</div>{# </div> #}</div>
 {% endblock %}

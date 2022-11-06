@@ -29,6 +29,11 @@
     color: red;
 }
 
+.dropdown-menu {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
 .active-subject {
     background-color: var(--color-mauve);
     color: var(--color-green);
