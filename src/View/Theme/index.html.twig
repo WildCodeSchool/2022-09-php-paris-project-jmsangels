@@ -4,157 +4,24 @@
 	KNOWLEDGE
 {% endblock %}
 
-
 {% block css %}
 	<link rel="stylesheet" href="/assets/css/theme.css">
 {% endblock %}
 
-
 {% block navbar %}
-	<nav class="navbar navbar-expand-md bg-green p-0">
-		<div class="container-fluid p-0">
-
-			<ul class="navbar-nav text-center align-items-center ">
-
-				{% for i in range(0,7) %}
-					<li class="col-3 nav-item">
-						<div class="">
-							{% if idsubject == subjects[i].id %}
-								<a class="hover nav-link fs-5 bg-clair text-color-green" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
-							{% else %}
-								<a class="hover text-color-clair nav-link fs-5" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
-							{% endif %}
-						</div>
-					</li>
-				{% endfor %}
-			</ul>
-
-			<ul class="navbar-nav  align-items-center">>
-				{% if subjects|length > 8 %}
-
-
-					<li class="nav-item dropdown me-3">
-						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-							<span class="bg-clair navbar-toggler-icon"></span>
-						</a>
-
-						<ul class="dropdown-menu bg-green">
-							{% for i in range(8,subjects|length) %}
-								<li>
-									<a class="menu-item text-color-white nav-link fs-5" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
-								</li>
-
-							{% endfor %}
-
-						</ul>
-					</li>
-
-				{% endif %}
-
-				<a class="" href="">📝</a>
-				<a class="ms-3" href="">🛠</a>
-				<a class="ms-3 me-3 " href="">🧻</a>
-
-			</ul>
-		</div>
-	</nav>
+	{% include 'Theme/nav.html.twig' %}
 {% endblock %}
+
 {% block content %}
-	<divclass="container-fluidp-0">{# <div class="row m-0"> #}<div class="col-2 bg-clair position-fixed">
 
-			<div class="row mt-5 ms-0 align-items-center border border-2 border-top-0 border-end-0   w-100">
+	<div class="container-fluid p-0">
+		<div class="row">
 
-				<div class="col-6 mt-3 text-center">
-					<h4 class="ps-4">Notions</h4>
-				</div>
+			{% include 'Theme/notionlist.html.twig' %}
 
-				<div class="col-6 mt-3 text-end">
-					<a class="fs-5" href="">📝</a>
-					{# <a class="ms-1" href="">🛠</a> #}
-					{# <a class="ms-1 " href="">🧻</a> #}
-				</div>
-			</div>
+			{% include 'Theme/body.html.twig' %}
 
-			<div class="">
-				<div class="list-group mt-5 notion-scroll">
-					{% set first = 1 %}
-
-					{% for notionitem in notions %}
-
-						<div class="container justify-content-around">
-
-							{% if notion.id == notionitem.id %}
-								<div class="list-group-item bg-green border-top-0 d-flex align-items-center justify-content-between">
-									<a class="hover menu-item text-color-clair fs-5 pe-5" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
-									<div>
-										<a class="fs-4" href="">🛠</a>
-										<a class="fs-4" href="">🧻</a>
-									</div>
-								</div>
-							{% else %}
-								<div class="list-group-item bg-clair">
-									{% if first %}
-										<a class="hover menu-item fs-5 text-color-green pe-5" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
-									{% else %}
-										<a class="hover menu-item border-top-0 fs-5 pe-5 text-color-green" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
-									{% endif %}
-								</div>
-							{% endif %}
-
-						</div>
-						{% set first = 0 %}
-					{% endfor %}
-
-				</div>
-			</div>
 		</div>
-		<div class="col-10 notion-margin">
+	</div>
 
-			<div class="row mt-3 justify-content-around">
-
-				<div class="col-5 mt-5">
-					<div class="card lecon-exemples-card bg-white mb-3">
-						<h4 class="card-header">Leçon</h4>
-						<div
-							class="card-body">
-							{# <textarea class="textarea-form form-control h-100" name="lecon">{{notion.lesson}}</textarea> #}
-							<p class="card-body">{{notion.lesson}}</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-5 mt-5">
-					<div class="card lecon-exemples-card bg-white">
-						<h4 class="card-header">Exemples</h4>
-						<div
-							class="card-body">
-							{# <textarea class="textarea-form form-control h-100" name="exemples">{{notion.sample}}</textarea> #}
-							<p class="card-text">{{notion.sample}}</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row mt-3 justify-content-center">
-
-				<div class="col-11">
-					<div class="card exercices-card">
-						<div class="card-header d-flex justify-content-between align-items-center">
-							<h4>Exercices</h4>
-							<div>
-								<a class="fs-5" href="/exercise?idnotion={{notion.id}}">📝</a>
-								<a class="fs-5 ms-3" href="">🛠</a>
-								<a class="fs-5 ms-3 me-3 " href="">🧻</a>
-							</div>
-						</div>
-
-						<div class="card-body">
-							<p class="card-text">Exerices ...</p>
-
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>{# </div> #}</div>
 {% endblock %}
