@@ -11,10 +11,17 @@
 
 .lecon-exemples-card {
     height: 450px;
+    /* margin-bottom: 100px; */
 }
 
 .exercices-card {
     height: 300px;
+}
+
+.body-height {
+    /* border: 1px solid red; */
+    /* min-height: 100vh;
+    max-height: 80vh; */
 }
 
 .textarea-form {
