@@ -17,18 +17,7 @@ class NotionManager extends AbstractManager
 
 
         return $statement->fetchAll();
-        // return (int)$this->pdo->lastInsertId();
     }
-
-    // public function select(int $notion_id): array
-    // {
-
-    //     $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " WHERE `id` = :idnotion");
-    //     $statement->bindValue('idnotion', $notion_id, PDO::PARAM_INT);
-    //     $statement->execute();
-
-    //     return $statement->fetch();
-    // }
 
     public function getSubjectId(int $notion_id): int
     {

@@ -39,11 +39,11 @@ class ThemeController extends AbstractController
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headertitle' => $themeObj->getThemeName($theme_id),
+                'headerTitle' => $themeObj->getThemeName($theme_id),
                 'subjects' => $subjects,
                 'notions' => $notions,
                 'notion' => $notion,
-                'idsubject' => $subject_id
+                'subjectid' => $subject_id
             ]
         );
     }

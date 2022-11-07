@@ -29,9 +29,9 @@ class NotionController extends AbstractController
             $subjects = $subjectsObj->selectAll((int)$theme_id);
             $notions = $notionsObj->selectAll((int)$subject_id);
 
-            foreach ($notions as $notionitem) {
-                if ($notionitem['id'] === $notion_id) {
-                    $notion = $notionitem;
+            foreach ($notions as $notionItem) {
+                if ($notionItem['id'] === $notion_id) {
+                    $notion = $notionItem;
                     break;
                 }
             }
@@ -42,11 +42,11 @@ class NotionController extends AbstractController
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headertitle' => $themeObj->getThemeName((int)$theme_id),
+                'headerTitle' => $themeObj->getThemeName((int)$theme_id),
                 'subjects' => $subjects,
                 'notions' => $notions,
                 'notion' => $notion,
-                'idsubject' => $subject_id
+                'subjectid' => $subject_id
             ]
         );
     }

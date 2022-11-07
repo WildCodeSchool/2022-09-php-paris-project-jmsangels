@@ -13,7 +13,7 @@ class SubjectController extends AbstractController
      */
     public function index(int $subject_id): string
     {
-        // if (!is_numeric($subject_id)) return ("Lost!");
+        if ($subject_id < 1) return ("Lost!");
 
         $themeObj = new ThemeManager();
         $subjectsObj = new SubjectManager();
@@ -27,20 +27,17 @@ class SubjectController extends AbstractController
         $notions = $notionsObj->selectAll($subject_id);
 
         if (!empty($notions)) {
-            // $notion_id = $notions[0]['id'];
             $notion = $notions[0];
         }
-        // var_dump($subjects);
-        // exit();
 
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headertitle' => $themeObj->getThemeName((int)$theme_id),
+                'headerTitle' => $themeObj->getThemeName((int)$theme_id),
                 'subjects' => $subjects,
                 'notions' => $notions,
                 'notion' => $notion,
-                'idsubject' => $subject_id
+                'subjectid' => $subject_id
             ]
         );
     }

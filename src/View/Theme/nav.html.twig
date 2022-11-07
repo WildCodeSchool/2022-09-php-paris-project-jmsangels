@@ -8,7 +8,7 @@
 
 				<li class="col-2 me-3 nav-item">
 					<div class="">
-						{% if idsubject == subjects[i].id %}
+						{% if subjectid == subjects[i].id %}
 							<a class="hover nav-link fs-6 bg-clair text-color-green" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 						{% else %}
 							<a class="hover text-color-clair nav-link fs-6" href="/subject?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>

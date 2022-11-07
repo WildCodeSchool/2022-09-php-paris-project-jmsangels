@@ -17,7 +17,6 @@ class SubjectManager extends AbstractManager
 
 
         return $statement->fetchAll();
-        // return (int)$this->pdo->lastInsertId();
     }
 
     public function getThemeId(int $subject_id): int
