@@ -22,22 +22,28 @@ class SubjectController extends AbstractController
         $theme_id  = 0;
         $notion = $notions = $subjects = [];
 
-        $theme_id = $subjectsObj->getThemeId((int)$subject_id);
-        $subjects = $subjectsObj->selectAll($theme_id);
-        $notions = $notionsObj->selectAll($subject_id);
+        $themes = $subjectsObj->selectOneById((int)$subject_id);
+        if (!empty($themes)) {
+            $theme_id = $themes['theme_id'];
+        }
+
+        $subjects = $subjectsObj->selectAllByThemeId($theme_id);
+        $notions = $notionsObj->selectAllBySubjectId($subject_id);
 
         if (!empty($notions)) {
             $notion = $notions[0];
         }
 
+        $theme = $themeObj->selectOneById($theme_id)['name'];
+
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headerTitle' => $themeObj->getThemeName((int)$theme_id),
+                'headertitle' => $theme,
                 'subjects' => $subjects,
                 'notions' => $notions,
                 'notion' => $notion,
-                'subjectid' => $subject_id
+                'idsubject' => $subject_id
             ]
         );
     }

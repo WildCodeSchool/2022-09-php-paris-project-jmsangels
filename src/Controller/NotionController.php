@@ -14,7 +14,7 @@ class NotionController extends AbstractController
     public function index(int $notion_id): string
     {
 
-        // if (!is_numeric($notion_id)) return ("Lost!");
+        if ($notion_id < 1) return ("Lost!");
 
         $themeObj = new ThemeManager();
         $subjectsObj = new SubjectManager();
@@ -23,30 +23,30 @@ class NotionController extends AbstractController
         $subject_id = $theme_id  = 0;
         $notion = $notions = $subjects = [];
 
-        $subject_id = $notionsObj->getSubjectId((int)$notion_id);
-        if ($subject_id) {
-            $theme_id = $subjectsObj->getThemeId((int)$subject_id);
-            $subjects = $subjectsObj->selectAll((int)$theme_id);
-            $notions = $notionsObj->selectAll((int)$subject_id);
+        $notion = $notionsObj->selectOneById((int)$notion_id);
 
-            foreach ($notions as $notionItem) {
-                if ($notionItem['id'] === $notion_id) {
-                    $notion = $notionItem;
-                    break;
-                }
+        if (!empty($notion)) {
+            $subject_id = (int)$notion['subject_id'];
+            $notions = $notionsObj->selectAllBySubjectId((int)$subject_id);
+
+            $themes = $subjectsObj->selectOneById((int)$subject_id);
+
+            if (!empty($themes)) {
+                $theme_id = $themes['theme_id'];
+                $subjects = $subjectsObj->selectAllByThemeId($theme_id);
             }
         }
 
-        // var_dump($subjects);
-        // exit();
+        $theme = $themeObj->selectOneById($theme_id)['name'];
+
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headerTitle' => $themeObj->getThemeName((int)$theme_id),
+                'headertitle' => $theme,
                 'subjects' => $subjects,
                 'notions' => $notions,
                 'notion' => $notion,
-                'subjectid' => $subject_id
+                'idsubject' => $subject_id
             ]
         );
     }

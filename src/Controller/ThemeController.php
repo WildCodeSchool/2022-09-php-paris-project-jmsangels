@@ -22,28 +22,26 @@ class ThemeController extends AbstractController
         $subject_id = 0;
         $notion = $notions = $subjects = [];
 
-        $subjects = $subjectsObj->selectAll($theme_id);
+        $subjects = $subjectsObj->selectAllByThemeId($theme_id);
 
         if (!empty($subjects)) {
             $subject_id = (int)$subjects[0]['id'];
-            $notions = $notionsObj->selectAll($subject_id);
+            $notions = $notionsObj->selectAllBySubjectId($subject_id);
         }
         if (!empty($notions)) {
-            // $idnotion = $notions[0]['id'];
             $notion = $notions[0];
         }
 
-        // var_dump($subjects);
-        // exit();
+        $theme = $themeObj->selectOneById($theme_id)['name'];
 
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headerTitle' => $themeObj->getThemeName($theme_id),
+                'headertitle' => $theme,
                 'subjects' => $subjects,
                 'notions' => $notions,
                 'notion' => $notion,
-                'subjectid' => $subject_id
+                'idsubject' => $subject_id
             ]
         );
     }
