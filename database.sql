@@ -49,7 +49,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `knowledge`.`notion` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `create_at` DATETIME NULL,
+  `created_at` DATETIME NULL,
   `name` VARCHAR(45) NULL,
   `lesson` TEXT NULL,
   `sample` TEXT NULL,
