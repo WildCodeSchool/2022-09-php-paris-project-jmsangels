@@ -4,24 +4,44 @@ namespace App\Controller;
 
 use App\Model\SubjectManager;
 use App\Model\ThemeManager;
+use App\Model\NotionManager;
 
 class ThemeController extends AbstractController
 {
     /**
-     * Display home page
+     * Display Subject List, Notion List & select first element
      */
-    public function index($theme_id): string
+    public function index(int $theme_id): string
     {
-        $theme = new ThemeManager();
+        // if (!is_numeric($theme_id)) return ("Lost!");
 
-        $subjects = new SubjectManager();
+        $themeObj = new ThemeManager();
+        $subjectsObj = new SubjectManager();
+        $notionsObj = new NotionManager();
+
+        $subject_id = 0;
+        $notion = $notions = $subjects = [];
+
+        $subjects = $subjectsObj->selectAllByThemeId($theme_id);
+
+        if (!empty($subjects)) {
+            $subject_id = (int)$subjects[0]['id'];
+            $notions = $notionsObj->selectAllBySubjectId($subject_id);
+        }
+        if (!empty($notions)) {
+            $notion = $notions[0];
+        }
+
+        $theme = $themeObj->selectOneById($theme_id)['name'];
 
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headertitle' => $theme->getThemeName($theme_id),
-                'subjects' => $subjects->selectAll($theme_id),
-                'idtheme' => $theme_id
+                'headertitle' => $theme,
+                'subjects' => $subjects,
+                'notions' => $notions,
+                'notion' => $notion,
+                'idsubject' => $subject_id
             ]
         );
     }

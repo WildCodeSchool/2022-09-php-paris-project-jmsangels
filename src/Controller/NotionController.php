@@ -11,22 +11,41 @@ class NotionController extends AbstractController
     /**
      * Display home page
      */
-    public function index(string $theme_id, string $subject_id, string $notion_id): string
+    public function index(int $notion_id): string
     {
-        $theme = new ThemeManager();
 
-        $subjects = new SubjectManager();
+        if ($notion_id < 1) return ("Lost!");
 
-        $notions = new NotionManager();
+        $themeObj = new ThemeManager();
+        $subjectsObj = new SubjectManager();
+        $notionsObj = new NotionManager();
+
+        $subject_id = $theme_id  = 0;
+        $notion = $notions = $subjects = [];
+
+        $notion = $notionsObj->selectOneById((int)$notion_id);
+
+        if (!empty($notion)) {
+            $subject_id = (int)$notion['subject_id'];
+            $notions = $notionsObj->selectAllBySubjectId((int)$subject_id);
+
+            $themes = $subjectsObj->selectOneById((int)$subject_id);
+
+            if (!empty($themes)) {
+                $theme_id = $themes['theme_id'];
+                $subjects = $subjectsObj->selectAllByThemeId($theme_id);
+            }
+        }
+
+        $theme = $themeObj->selectOneById($theme_id)['name'];
 
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headertitle' => $theme->getThemeName((int)$theme_id),
-                'subjects' => $subjects->selectAll((int)$theme_id),
-                'notions' => $notions->selectAll((int)$subject_id),
-                'notion' => $notions->select((int)$notion_id),
-                'idtheme' => $theme_id,
+                'headertitle' => $theme,
+                'subjects' => $subjects,
+                'notions' => $notions,
+                'notion' => $notion,
                 'idsubject' => $subject_id
             ]
         );

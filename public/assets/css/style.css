@@ -1,110 +1,52 @@
-* {
-    box-sizing: border-box;
-    margin: 0px;
-    font-family: gatwick;
+    * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        /* font-family: gatwick; */
 
-}
+    }
 
+    :root {
+        --color-green: #223d3c;
+        --color-mauve: #f8f2f3;
+    }
 
-.bg-notions {
-    /* height: 80vh; */
-    background-color: #D3D3D3;
-}
+    /* header */
 
+    .header-h {
+        height: 60px;
+    }
 
-.text-color-green {
-    color: #223d3c;
-}
+    header img {
+        height: 60px;
+        width: 80px;
+    }
 
+    .body-h {
+        height: calc(100vh - 60px - 40px);
+    }
 
-.lecon-exemples-card {
-    height: 450px;
-}
+    .footer-h {
+        height: 40px;
+    }
 
-.exercices-card {
-    height: 250px;
-}
+    .text-color-green {
+        color: var(--color-green);
+    }
 
-.textarea-form {
-    border: none;
-    overflow: auto;
-    outline: none;
-    box-shadow: none;
-    resize: none;
-}
+    .text-color-clair {
+        color: var(--color-mauve);
+    }
 
-header img {
-    height: 40px;
-    width: 40px;
-}
+    .text-color-white {
+        color: white;
+    }
 
-nav div ul li a:hover {
-    background-color: #D3D3D3;
-    text-decoration: none;
-    color: blue;
+    .bg-clair {
+        background-color: var(--color-mauve);
 
-}
+    }
 
-.hover-a:hover {
-    background-color: black;
-    color: white;
-}
-
-
-/* ---------- Home page ---------- */
-
-.container-fluid-theme {
-    display: flex;
-    flex-direction: row;
-}
-
-.container-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f8f2f3;
-    height: 900px;
-    width: 50%;
-}
-
-.logo-image-theme img {
-    border-radius: 40px 40px 0 0;
-}
-
-
-.menu-themes {
-    background-color: #223d3c;
-    width: 50%;
-    height: 900px;
-}
-
-.menu-themes ul {
-    list-style-type: none;
-    position: relative;
-    left: 15%;
-    margin-top: 2em;
-}
-
-.menu-themes ul li {
-    margin: 50px 50px;
-}
-
-.menu-themes ul li a {
-    text-decoration: none;
-    color: white;
-    line-height: 6px;
-    font-size: 15pt;
-    font-family: gatwick;
-
-}
-
-hr {
-    width: 300px;
-    color: white;
-    height: 3px;
-}
-
-.menu-themes ul li a:hover {
-    color: #3c7085;
-
-}
+    .bg-green {
+        background-color: #223d3c;
+    }

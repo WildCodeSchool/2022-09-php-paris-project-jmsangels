@@ -9,27 +9,40 @@ use App\Model\NotionManager;
 class SubjectController extends AbstractController
 {
     /**
-     * Display home page
+     * Display Subject List, Notion List & select active subject
      */
-    public function index(string $theme_id, string $subject_id): string
+    public function index(int $subject_id): string
     {
-        $theme = new ThemeManager();
+        if ($subject_id < 1) return ("Lost!");
 
-        $subjects = new SubjectManager();
+        $themeObj = new ThemeManager();
+        $subjectsObj = new SubjectManager();
+        $notionsObj = new NotionManager();
 
-        $notions = new NotionManager();
+        $theme_id  = 0;
+        $notion = $notions = $subjects = [];
 
-        // $res = $notions->selectAll((int)$subject_id);
-        // var_dump($res);
-        // exit();
+        $themes = $subjectsObj->selectOneById((int)$subject_id);
+        if (!empty($themes)) {
+            $theme_id = $themes['theme_id'];
+        }
+
+        $subjects = $subjectsObj->selectAllByThemeId($theme_id);
+        $notions = $notionsObj->selectAllBySubjectId($subject_id);
+
+        if (!empty($notions)) {
+            $notion = $notions[0];
+        }
+
+        $theme = $themeObj->selectOneById($theme_id)['name'];
 
         return $this->twig->render(
             'Theme/index.html.twig',
             [
-                'headertitle' => $theme->getThemeName((int)$theme_id),
-                'subjects' => $subjects->selectAll((int)$theme_id),
-                'notions' => $notions->selectAll((int)$subject_id),
-                'idtheme' => $theme_id,
+                'headertitle' => $theme,
+                'subjects' => $subjects,
+                'notions' => $notions,
+                'notion' => $notion,
                 'idsubject' => $subject_id
             ]
         );

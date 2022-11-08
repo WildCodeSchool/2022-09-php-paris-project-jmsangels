@@ -8,7 +8,7 @@ class SubjectManager extends AbstractManager
 {
     public const TABLE = 'subject';
 
-    public function selectAll(int $theme_id): array
+    public function selectAllByThemeId(int $theme_id): array
     {
 
         $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " WHERE `theme_id` = :idtheme");
@@ -20,13 +20,15 @@ class SubjectManager extends AbstractManager
         // return (int)$this->pdo->lastInsertId();
     }
 
-    public function getIDTheme(int $subject_id): int
-    {
+    // public function getThemeId(int $subject_id): int
+    // {
 
-        $statement = $this->pdo->prepare("SELECT theme_id FROM " . self::TABLE . " WHERE `id` = :idsubject");
-        $statement->bindValue('idsubject', $subject_id, PDO::PARAM_INT);
-        $statement->execute();
+    //     $statement = $this->pdo->prepare("SELECT theme_id FROM " . self::TABLE . " WHERE `id` = :idsubject");
+    //     $statement->bindValue('idsubject', $subject_id, PDO::PARAM_INT);
+    //     $statement->execute();
 
-        return (int)$statement->fetch()['theme_id'];
-    }
+    //     $theme = $statement->fetch();
+
+    //     return $theme ? (int)$theme['theme_id'] : 0;
+    // }
 }
