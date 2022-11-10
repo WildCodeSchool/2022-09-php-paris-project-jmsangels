@@ -1,6 +1,0 @@
-<?php
-
-define('APP_DB_USER', 'naailah_jugon');
-define('APP_DB_PASSWORD', 'NJ080492');
-define('APP_DB_HOST', 'localhost');
-define('APP_DB_NAME', 'knowledge');

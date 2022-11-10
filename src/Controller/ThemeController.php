@@ -6,6 +6,7 @@ use App\Model\ThemeManager;
 
 class ThemeController extends AbstractController
 {
+    public const HEADERTITLE = 'KNOWLEDGE';
     /**
      * Display home page
      */
@@ -13,12 +14,11 @@ class ThemeController extends AbstractController
     {
         $themeManager = new ThemeManager();
         return $this->twig->render(
-            'Theme/theme.html.twig',
+            'Theme/index.html.twig',
             [
-                'headertitle' => 'KNOWLEDGE',
-                'themes'=> $themeManager->selectAll()
+                'headerTitle' => self::HEADERTITLE,
+                'themes' => $themeManager->selectAll()
             ]
         );
     }
 }
-    

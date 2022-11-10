@@ -1,52 +1,53 @@
-    * {
-        box-sizing: border-box;
-        margin: 0px;
-        padding: 0px;
-        /* font-family: gatwick; */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
 
-    }
+:root {
+    --color-green: #223d3c;
+    --color-mauve: #f8f2f3;
+}
 
-    :root {
-        --color-green: #223d3c;
-        --color-mauve: #f8f2f3;
-    }
+.header {
+    height: 60px;
+}
 
-    /* header */
+header img {
+    height: 60px;
+    width: 80px;
+}
 
-    .header {
-        height: 60px;
-    }
+.body {
+    height: calc(100vh - 60px - 40px);
+}
 
-    header img {
-        height: 60px;
-        width: 80px;
-    }
+.footer {
+    height: 40px;
+}
 
-    .body {
-        height: calc(100vh - 60px - 40px);
-    }
+.text-color-green {
+    color: var(--color-green);
+}
 
-    .footer {
-        height: 40px;
-    }
+.text-color-clair {
+    color: var(--color-mauve);
+}
 
-    .text-color-green {
-        color: var(--color-green);
-    }
+.text-color-white {
+    color: white;
+}
 
-    .text-color-clair {
-        color: var(--color-mauve);
-    }
+.bg-clair {
+    background-color: var(--color-mauve);
+}
 
-    .text-color-white {
-        color: white;
-    }
+.bg-green {
+    background-color: #223D3C;
+}
 
-    .bg-clair {
-        background-color: var(--color-mauve);
-
-    }
-
-    .bg-green {
-        background-color: #223d3c;
-    }
+.menu-themes:hover {
+    color: var(--color-mauve);
+    margin: 0px;
+    padding: 0px;  
+}
