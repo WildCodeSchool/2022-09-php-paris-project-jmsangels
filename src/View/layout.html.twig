@@ -1,21 +1,41 @@
 <!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/assets/images/favicon.png">
-
-    <title>{% block title %}{% endblock %}</title>
-
-    <link rel="stylesheet" href="/assets/css/style.css">
-    {% block stylesheet %}{% endblock %}
-</head>
-
-<body>
-    {% block content %}{% endblock %}
-    {% block javascript %}{% endblock %}
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/assets/images/logo.png">
+        <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/style.css"> {% block css %}{% endblock %}
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+    </head>
+    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <body>
+        <header class="sticky-top">
+            {% include 'header.html.twig' %}
+            {% block navbar %}{% endblock %}
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+            {% block javascript %}{% endblock %}
+        </main>
+        <footer class="fixed-bottom">
+            {% include 'footer.html.twig' %}
+        </footer>
+    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 

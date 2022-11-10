@@ -1,3 +1,52 @@
-body {
-    color: #f76c6c;
-}
+    * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        /* font-family: gatwick; */
+
+    }
+
+    :root {
+        --color-green: #223d3c;
+        --color-mauve: #f8f2f3;
+    }
+
+    /* header */
+
+    .header {
+        height: 60px;
+    }
+
+    header img {
+        height: 60px;
+        width: 80px;
+    }
+
+    .body {
+        height: calc(100vh - 60px - 40px);
+    }
+
+    .footer {
+        height: 40px;
+    }
+
+    .text-color-green {
+        color: var(--color-green);
+    }
+
+    .text-color-clair {
+        color: var(--color-mauve);
+    }
+
+    .text-color-white {
+        color: white;
+    }
+
+    .bg-clair {
+        background-color: var(--color-mauve);
+
+    }
+
+    .bg-green {
+        background-color: #223d3c;
+    }
