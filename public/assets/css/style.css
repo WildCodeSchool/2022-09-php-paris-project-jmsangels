@@ -13,9 +13,14 @@
     height: 60px;
 }
 
-header img {
+.logo {
     height: 60px;
     width: 80px;
+}
+
+.list-group-item:hover {
+    color: var(--color-green) !important;
+    background-color: var(--color-mauve) !important;
 }
 
 .body {
@@ -31,11 +36,7 @@ header img {
 }
 
 .text-color-clair {
-    color: var(--color-mauve);
-}
-
-.text-color-white {
-    color: white;
+    color: var(--color-mauve) !important;
 }
 
 .bg-clair {
@@ -43,11 +44,5 @@ header img {
 }
 
 .bg-green {
-    background-color: var (--color-green);
-}
-
-.menu-themes:hover {
-    color: var(--color-mauve);
-    margin: 0px;
-    padding: 0px;  
+    background-color: var(--color-green) !important;
 }
