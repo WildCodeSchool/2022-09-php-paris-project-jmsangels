@@ -43,7 +43,7 @@ header img {
 }
 
 .bg-green {
-    background-color: #223D3C;
+    background-color: var (--color-green);
 }
 
 .menu-themes:hover {
