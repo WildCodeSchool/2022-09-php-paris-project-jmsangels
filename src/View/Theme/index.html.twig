@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{{ headerTitle }}
+{% endblock %}
+
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="row body flex-row">
+			<div class="col-8 d-flex justify-content-center bg-clair">
+				<div class="d-flex justify-content-center align-items-center">
+					<img class="h-75 rounded-bottom rounded-5" src="/../assets/images/homepage_img.png">
+				</div>
+			</div>
+
+			<div class="col-4 d-flex justify-content-center align-items-center bg-green">
+				<ul>
+					{% for theme in themes %}
+						<li class="p-4 border-bottom border-top bg-green">
+							<a class="menu-themes fs-4" href="/theme/show?id={{theme.id}}">{{theme.name}}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}
