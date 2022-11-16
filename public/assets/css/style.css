@@ -19,8 +19,8 @@
 }
 
 .list-group-item:hover {
-    color: var(--color-green) !important;
-    background-color: var(--color-mauve) !important;
+    color: var(--color-green);
+    background-color: var(--color-mauve);
 }
 
 .body {
@@ -36,7 +36,7 @@
 }
 
 .text-color-clair {
-    color: var(--color-mauve) !important;
+    color: var(--color-mauve);
 }
 
 .bg-clair {
@@ -44,5 +44,5 @@
 }
 
 .bg-green {
-    background-color: var(--color-green) !important;
+    background-color: var(--color-green);
 }
