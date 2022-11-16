@@ -10,4 +10,3 @@ return [
     '' => ['ThemeController', 'index'],
     'theme/show' => ['ThemeController', 'show', ['id']]
 ];
-
