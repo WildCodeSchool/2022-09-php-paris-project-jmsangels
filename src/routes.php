@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 // list of accessible routes of your application, add every new route here
 // key : route to match
@@ -9,5 +9,6 @@
 return [
     '' => ['ThemeController', 'index'],
     'theme/show' => ['ThemeController', 'show', ['id']],
-    'subject/show' => ['SubjectController', 'show', ['id']]
+    'subject/show' => ['SubjectController', 'show', ['id']],
+    'notion/show' => ['NotionController', 'show', ['id']]
 ];
