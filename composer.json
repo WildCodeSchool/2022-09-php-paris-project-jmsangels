@@ -1,16 +1,17 @@
 {
-    "name": "wildcodeschool/simple-mvc",
-    "description": "Simple from scratch PHP MVC for WildCodeSchool students",
+    "name": "wildcodeschool/knowledge",
+    "description": "Project Knowledge",
     "authors": [
         {
-            "name": "Aurelien",
-            "email": "aurelien.barbier@wildcodeschool.com"
+            "name": "JM's angels",
+            "email": "jugonnaailah@gmail.com"
         }
     ],
     "minimum-stability": "stable",
     "require": {
         "twig/twig": "^3.1",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "twbs/bootstrap": "^5.2"
     },
     "require-dev": {
         "filp/whoops": "^2.14",
