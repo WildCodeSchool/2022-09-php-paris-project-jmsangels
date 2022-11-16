@@ -30,18 +30,21 @@ class ThemeController extends AbstractController
             header("Location: /");
         }
 
+        $_SESSION['theme_id'] = $themeId;
 
         $themeManager = new ThemeManager();
         $theme = $themeManager->selectOneById((int)$themeId);
-        $name = $theme['name'];
+        $themeName = $theme['name'];
+        $_SESSION['theme_name'] = $themeName;
 
         $subjectManager = new SubjectManager();
         $subjects = $subjectManager->selectAllByThemeId((int)$themeId);
 
+
         return $this->twig->render(
             'Notion/index.html.twig',
             [
-                'headerTitle' => $name,
+                'headerTitle' => $themeName,
                 'subjects' => $subjects
             ]
         );
