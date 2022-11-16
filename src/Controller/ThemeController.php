@@ -28,16 +28,15 @@ class ThemeController extends AbstractController
 
         if (is_numeric($themeId) == null) {
             header("Location: /");
-
         }
 
 
         $themeManager = new ThemeManager();
-        $theme = $themeManager->selectOneById($themeId);
+        $theme = $themeManager->selectOneById((int) $themeId);
         $name = $theme['name'];
 
         $subjectManager = new SubjectManager();
-        $subjects = $subjectManager->selectAllByThemeId($themeId);
+        $subjects = $subjectManager->selectAllByThemeId((int) $themeId);
 
         return $this->twig->render(
             'Notion/index.html.twig',
