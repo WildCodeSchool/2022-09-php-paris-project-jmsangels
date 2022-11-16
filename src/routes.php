@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // list of accessible routes of your application, add every new route here
 // key : route to match
