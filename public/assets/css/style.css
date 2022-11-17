@@ -31,7 +31,7 @@ header img {
 }
 
 .text-color-clair {
-    color: var(--color-mauve) !important;
+    color: var(--color-mauve);
 }
 
 .text-color-white {
