@@ -35,10 +35,10 @@ class ThemeController extends AbstractController
 
 
         $themeManager = new ThemeManager();
-        $theme = $themeManager->selectOneById((int) $themeId);
+        $theme = $themeManager->selectOneById((int)$themeId);
     
         $subjectManager = new SubjectManager();
-        $subjects = $subjectManager->selectAllByThemeId((int) $themeId);
+        $subjects = $subjectManager->selectAllByThemeId((int)$themeId);
 
         return $this->twig->render(
             'Notion/index.html.twig',
