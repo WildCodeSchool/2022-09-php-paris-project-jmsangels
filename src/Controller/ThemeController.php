@@ -26,7 +26,7 @@ class ThemeController extends AbstractController
     public function show(string $themeId): string
     {
 
-        if (is_numeric($themeId) == null) {
+        if  (!is_numeric($themeId) || $themeId === null) {
             header("Location: /");
         }
 
