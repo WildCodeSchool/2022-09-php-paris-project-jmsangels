@@ -36,7 +36,7 @@
 }
 
 .text-color-clair {
-    color: var(--color-mauve) !important;
+    color: var(--color-mauve);
 }
 
 .bg-clair {
