@@ -32,11 +32,10 @@ class ThemeController extends AbstractController
         if (is_numeric($themeId) == null) {
             header("Location: /");
         }
-
-
+        
         $themeManager = new ThemeManager();
         $theme = $themeManager->selectOneById((int)$themeId);
-    
+        
         $subjectManager = new SubjectManager();
         $subjects = $subjectManager->selectAllByThemeId((int)$themeId);
 
