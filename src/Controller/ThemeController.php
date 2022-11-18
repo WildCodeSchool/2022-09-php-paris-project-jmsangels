@@ -7,18 +7,25 @@ use App\Model\ThemeManager;
 
 class ThemeController extends AbstractController
 {
+    private ThemeManager $themeManager;
+
     public const HEADERTITLE = 'KNOWLEDGE';
     /**
      * Display home page
      */
+    public function __construct()
+    {
+        $this->themeManager = new ThemeManager();
+        parent::__construct();
+    }
+
     public function index(): string
     {
-        $themeManager = new ThemeManager();
         return $this->twig->render(
             'Theme/index.html.twig',
             [
                 'headerTitle' => self::HEADERTITLE,
-                'themes' => $themeManager->selectAll()
+                'themes' => $this->themeManager->selectAll()
             ]
         );
     }
@@ -26,7 +33,7 @@ class ThemeController extends AbstractController
     public function show(string $themeId): string
     {
 
-        if (is_numeric($themeId) == null) {
+        if (!is_numeric($themeId) || $themeId == null) {
             header("Location: /");
         }
 
