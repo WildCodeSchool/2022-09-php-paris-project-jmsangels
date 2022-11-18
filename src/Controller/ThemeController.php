@@ -8,6 +8,7 @@ use App\Model\ThemeManager;
 class ThemeController extends AbstractController
 {
     private ThemeManager $themeManager;
+
     public const HEADERTITLE = 'KNOWLEDGE';
     /**
      * Display home page
@@ -15,7 +16,9 @@ class ThemeController extends AbstractController
     public function __construct()
     {
         $this->themeManager = new ThemeManager();
+        parent::__construct();
     }
+
     public function index(): string
     {
         return $this->twig->render(
@@ -30,11 +33,11 @@ class ThemeController extends AbstractController
     public function show(string $themeId): string
     {
 
-        if (is_numeric($themeId) == null) {
+        if (!is_numeric($themeId) || $themeId == null) {
             header("Location: /");
         }
 
-        $themeManager = new ThemeManager();
+        $themeManager = $this->themeManager;
         $theme = $themeManager->selectOneById((int)$themeId);
 
         $subjectManager = new SubjectManager();
