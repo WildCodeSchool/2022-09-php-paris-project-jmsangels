@@ -17,7 +17,6 @@
 
 
         <div class="row list-group mt-5 notion-scroll">
-            {% set first = 1 %}
 
             {% for notionitem in notions %}
 
@@ -33,7 +32,7 @@
                         </div>
                     {% else %}
                         <div class="list-group-item bg-clair">
-                            {% if first %}
+                            {% if loop.first %}
                                 <a class="hover menu-item text-color-green pe-5" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
                             {% else %}
                                 <a class="hover menu-item border-top-0 pe-5 text-color-green" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
@@ -42,7 +41,6 @@
                     {% endif %}
 
                 </div>
-                {% set first = 0 %}
             {% endfor %}
 
         </div>
