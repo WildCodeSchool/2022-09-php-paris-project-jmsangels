@@ -13,9 +13,14 @@
     height: 60px;
 }
 
-header img {
+.logo {
     height: 60px;
     width: 80px;
+}
+
+.list-group-item:hover {
+    color: var(--color-green);
+    background-color: var(--color-mauve);
 }
 
 .body {
@@ -34,20 +39,16 @@ header img {
     color: var(--color-mauve);
 }
 
-.text-color-white {
-    color: white;
-}
-
 .bg-clair {
     background-color: var(--color-mauve);
 }
 
 .bg-green {
-    background-color: var (--color-green);
+    background-color: var(--color-green);
 }
 
 .menu-themes:hover {
     color: var(--color-mauve);
     margin: 0px;
-    padding: 0px;  
+    padding: 0px;
 }
