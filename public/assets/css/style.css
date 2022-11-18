@@ -46,3 +46,9 @@
 .bg-green {
     background-color: var(--color-green);
 }
+
+.menu-themes:hover {
+    color: var(--color-mauve);
+    margin: 0px;
+    padding: 0px;
+}
