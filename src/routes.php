@@ -10,5 +10,6 @@ return [
     '' => ['ThemeController', 'index'],
     'theme/show' => ['ThemeController', 'show', ['id']],
     'subject/show' => ['SubjectController', 'show', ['id']],
-    'notion/show' => ['NotionController', 'show', ['id']]
+    'notion/show' => ['NotionController', 'show', ['id']],
+    'notion/add' => ['NotionController', 'add', ['subjectId']]
 ];

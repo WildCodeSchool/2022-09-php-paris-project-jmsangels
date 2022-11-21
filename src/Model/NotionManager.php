@@ -18,4 +18,18 @@ class NotionManager extends AbstractManager
 
         return $statement->fetchAll();
     }
+
+    public function insert(array $notion)
+    {
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
+            " (`subject_id`, `name`, `lesson`, `sample`, `created_at`, `file_image`) 
+            VALUES (:subject_id, :name, :lesson, :sample, :created_at, :file_image)");
+        $statement->bindValue('subject_id', $notion['subject_id'], \PDO::PARAM_INT);
+        $statement->bindValue('name', $notion['name'], \PDO::PARAM_STR);
+        $statement->bindValue('lesson', $notion['lesson'], \PDO::PARAM_STR);
+        $statement->bindValue('sample', $notion['sample'], \PDO::PARAM_STR);
+        $statement->bindValue('created_at', $notion['created_at'], \PDO::PARAM_STR);
+        $statement->bindValue('file_image', $notion['file_image'], \PDO::PARAM_STR);
+        return $statement->execute();
+    }
 }
