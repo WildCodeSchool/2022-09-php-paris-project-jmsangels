@@ -24,7 +24,7 @@ class NotionController extends AbstractController
         }
 
         if (!isset($_SESSION['theme_id']) || (!isset($_SESSION['theme_name']))) {
-            header("HTTP/1.0 404 Not Found");
+            header("Location: /");
         }
 
         $notions = $this->notionManager->selectAllBySubjectId((int)$subjectId);

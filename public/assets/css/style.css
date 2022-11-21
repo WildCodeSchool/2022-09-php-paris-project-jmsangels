@@ -18,11 +18,20 @@
     width: 80px;
 }
 
-.list-group-item a {
+.home-list-group-item a {
     text-decoration: none;
 }
 
-.list-group-item a:hover {
+.home-list-group-item:hover {
+    color: var(--color-green);
+    background-color: var(--color-mauve);
+}
+
+.notion-list-group-item a {
+    text-decoration: none;
+}
+
+.notion-list-group-item a:hover {
     color: var(--color-mauve);
     background-color: var(--color-green);
 }
