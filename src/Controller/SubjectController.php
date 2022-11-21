@@ -7,21 +7,28 @@ use App\Model\NotionManager;
 
 class SubjectController extends AbstractController
 {
+    private SubjectManager $subjectManager;
+
+    public function __construct()
+    {
+        $this->subjectManager = new SubjectManager();
+        parent::__construct();
+    }
+
     public function show(string $subjectId): string
     {
-        if (is_numeric($subjectId) == null) {
+        if (!is_numeric($subjectId) || $subjectId == null) {
             header("Location: /");
         }
 
         if (!isset($_SESSION['theme_id']) || (!isset($_SESSION['theme_name']))) {
-            return "Session undefined";
+             header("HTTP/1.0 404 Not Found");
         }
 
         $themeId = $_SESSION['theme_id'];
         $themeName = $_SESSION['theme_name'];
 
-        $subjectManager = new SubjectManager();
-        $subjects = $subjectManager->selectAllByThemeId((int)$themeId);
+        $subjects = $this->subjectManager->selectAllByThemeId((int)$themeId);
 
         $notionManager = new NotionManager();
         $notions = $notionManager->selectAllBySubjectId((int)$subjectId);

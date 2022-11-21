@@ -7,18 +7,25 @@ use App\Model\ThemeManager;
 
 class ThemeController extends AbstractController
 {
+    private ThemeManager $themeManager;
+
     public const HEADERTITLE = 'KNOWLEDGE';
     /**
      * Display home page
      */
+    public function __construct()
+    {
+        $this->themeManager = new ThemeManager();
+        parent::__construct();
+    }
+
     public function index(): string
     {
-        $themeManager = new ThemeManager();
         return $this->twig->render(
             'Theme/index.html.twig',
             [
                 'headerTitle' => self::HEADERTITLE,
-                'themes' => $themeManager->selectAll()
+                'themes' => $this->themeManager->selectAll()
             ]
         );
     }
@@ -30,21 +37,17 @@ class ThemeController extends AbstractController
             header("Location: /");
         }
 
-        $_SESSION['theme_id'] = $themeId;
-
-        $themeManager = new ThemeManager();
-        $theme = $themeManager->selectOneById((int)$themeId);
-        $themeName = $theme['name'];
-        $_SESSION['theme_name'] = $themeName;
+        $theme = $this->themeManager->selectOneById((int)$themeId);
+        $_SESSION['theme_id'] = $theme['id'];
+        $_SESSION['theme_name'] = $theme['name'];
 
         $subjectManager = new SubjectManager();
         $subjects = $subjectManager->selectAllByThemeId((int)$themeId);
 
-
         return $this->twig->render(
             'Notion/index.html.twig',
             [
-                'headerTitle' => $themeName,
+                'headerTitle' => $theme['name'],
                 'subjects' => $subjects
             ]
         );
