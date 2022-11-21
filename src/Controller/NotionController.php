@@ -100,7 +100,7 @@ class NotionController extends AbstractController
 
                 $notionManager = new NotionManager();
                 $notionManager->add($notion);
-                header("Location: /subject/show?id=" . $subjectId);
+                header("Location: /notion/list?id_subject=" . $subjectId);
                 return "";
             }
         }
