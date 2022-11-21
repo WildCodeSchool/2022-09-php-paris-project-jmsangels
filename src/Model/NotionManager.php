@@ -19,7 +19,7 @@ class NotionManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-    public function insert(array $notion)
+    public function add(array $notion)
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
             " (`subject_id`, `name`, `lesson`, `sample`, `created_at`, `file_image`) 
