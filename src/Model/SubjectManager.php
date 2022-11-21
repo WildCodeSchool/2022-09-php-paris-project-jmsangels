@@ -10,9 +10,8 @@ class SubjectManager extends AbstractManager
 
     public function selectAllByThemeId(int $themeId): array
     {
-
-        $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " WHERE `theme_id` = :idtheme");
-        $statement->bindValue('idtheme', $themeId, PDO::PARAM_INT);
+        $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " WHERE `theme_id` = :themeid");
+        $statement->bindValue('themeid', $themeId, PDO::PARAM_INT);
         $statement->execute();
 
         return $statement->fetchAll();

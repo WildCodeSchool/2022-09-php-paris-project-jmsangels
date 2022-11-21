@@ -9,7 +9,7 @@ class NotionController extends AbstractController
 {
     public function show(string $notionId): string
     {
-        if (is_numeric($notionId) == null) {
+        if (!is_numeric($notionId) || $notionId == null) {
             header("Location: /");
         }
 

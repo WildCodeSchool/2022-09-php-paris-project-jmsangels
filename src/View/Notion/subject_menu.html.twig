@@ -1,10 +1,12 @@
-<nav class="nav-h navbar navbar-expand-md bg-green ">
+{% set LIMIT_MENU = 8 %}
+
+<nav class="nav navbar navbar-expand-md bg-green ">
 
 	<div class="container-fluid p-0">
 
 		<ul class="navbar-nav text-center align-items-center ">
 
-			{% for i in range(0,7) %}
+			{% for i in range(0, LIMIT_MENU) %}
 
 				<li class="col-2 me-3 nav-item">
 					<div class="">
@@ -19,8 +21,7 @@
 		</ul>
 
 		<ul class="navbar-nav  align-items-center">>
-			{% if subjects|length > 8 %}
-
+			{% if subjects|length > LIMIT_MENU + 1 %}
 
 				<li class="nav-item dropdown me-3">
 					<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
@@ -28,7 +29,7 @@
 					</a>
 
 					<ul class="dropdown-menu bg-green">
-						{% for i in range(8,subjects|length) %}
+						{% for i in range(LIMIT_MENU, subjects|length) %}
 							<li>
 								<a class="menu-item text-color-white nav-link fs-6" href="/subject/show?id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 							</li>
@@ -40,7 +41,7 @@
 
 			{% endif %}
 
-			<a class="" href="">📝</a>
+			<a href="">📝</a>
 			<a class="ms-3" href="">🛠</a>
 			<a class="ms-3 me-3 " href="">🧻</a>
 
