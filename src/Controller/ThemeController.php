@@ -37,8 +37,9 @@ class ThemeController extends AbstractController
             header("Location: /");
         }
 
-        $themeManager = $this->themeManager;
-        $theme = $themeManager->selectOneById((int)$themeId);
+        $theme = $this->themeManager->selectOneById((int)$themeId);
+        $_SESSION['theme_id'] = $theme['id'];
+        $_SESSION['theme_name'] = $theme['name'];
 
         $subjectManager = new SubjectManager();
         $subjects = $subjectManager->selectAllByThemeId((int)$themeId);
