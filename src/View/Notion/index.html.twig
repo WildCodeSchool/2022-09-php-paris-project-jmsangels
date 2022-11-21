@@ -1,9 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Page Thème{% endblock %}
-
-{% block css %}
-	<link rel="stylesheet" href="/assets/css/notion.css">
+{% block title %}Page Thème
 {% endblock %}
 
 {% block navbar %}
@@ -11,8 +8,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid p-0 overflow-hidden"> 
-	{% include 'Notion/list.html.twig' %}
-	{% include 'Notion/notion.html.twig' %}
-</div> 
+	<div class="container-fluid p-0 overflow-hidden">
+		{% include 'Notion/list.html.twig' %}
+		{% include 'Notion/notion.html.twig' %}
+	</div>
 {% endblock %}

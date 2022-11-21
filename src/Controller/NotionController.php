@@ -98,8 +98,7 @@ class NotionController extends AbstractController
                     "file_image" => $fileNameImg
                 ];
 
-                $notionManager = new NotionManager();
-                $notionManager->add($notion);
+                $this->notionManager->add($notion);
                 header("Location: /notion/list?id_subject=" . $subjectId);
                 return "";
             }
