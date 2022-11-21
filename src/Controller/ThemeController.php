@@ -22,7 +22,7 @@ class ThemeController extends AbstractController
     public function index(): string
     {
         return $this->twig->render(
-            'Theme/index.html.twig',
+            'Home/index.html.twig',
             [
                 'headerTitle' => self::HEADERTITLE,
                 'themes' => $this->themeManager->selectAll()
@@ -45,7 +45,7 @@ class ThemeController extends AbstractController
         $subjects = $subjectManager->selectAllByThemeId((int)$themeId);
 
         return $this->twig->render(
-            'Notion/index.html.twig',
+            'Theme/index.html.twig',
             [
                 'headerTitle' => $theme['name'],
                 'subjects' => $subjects

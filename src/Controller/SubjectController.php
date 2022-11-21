@@ -34,12 +34,12 @@ class SubjectController extends AbstractController
         $notions = $notionManager->selectAllBySubjectId((int)$subjectId);
 
         return $this->twig->render(
-            'Notion/index.html.twig',
+            'Theme/index.html.twig',
             [
                 'headerTitle' => $themeName,
                 'subjects' => $subjects,
                 'notions' => $notions,
-                'subjectId' => $subjectId
+                'subjectSelected' => $subjectId
             ]
         );
     }

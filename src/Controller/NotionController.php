@@ -7,35 +7,37 @@ use App\Model\NotionManager;
 
 class NotionController extends AbstractController
 {
-    public function show(string $notionId): string
+    private NotionManager $notionManager;
+    private SubjectManager $subjectManager;
+
+    public function __construct()
     {
-        if (is_numeric($notionId) == null) {
+        $this->notionManager = new NotionManager();
+        $this->subjectManager = new SubjectManager();
+        parent::__construct();
+    }
+
+    public function list(string $subjectId): string
+    {
+        if (!is_numeric($subjectId) || $subjectId == null) {
             header("Location: /");
         }
 
         if (!isset($_SESSION['theme_id']) || (!isset($_SESSION['theme_name']))) {
-            return "Session undefined";
+            header("HTTP/1.0 404 Not Found");
         }
 
-        $themeId = $_SESSION['theme_id'];
-        $themeName = $_SESSION['theme_name'];
+        $notions = $this->notionManager->selectAllBySubjectId((int)$subjectId);
 
-        $notionManager = new NotionManager();
-        $notion = $notionManager->selectOneById((int)$notionId);
-        $subjectId = $notion ['subject_id'];
-        $notions = $notionManager->selectAllBySubjectId((int)$subjectId);
-
-        $subjectManager = new SubjectManager();
-        $subjects = $subjectManager->selectAllByThemeId((int)$themeId);
+        $subjects = $this->subjectManager->selectAllByThemeId((int)$_SESSION['theme_id']);
 
         return $this->twig->render(
-            'Notion/index.html.twig',
+            'Theme/index.html.twig',
             [
-                'headerTitle' => $themeName,
+                'headerTitle' => $_SESSION['theme_name'],
                 'subjects' => $subjects,
                 'notions' => $notions,
-                'subjectId' => $subjectId,
-                'notion' => $notion
+                'subjectSelected' => $subjectId
             ]
         );
     }

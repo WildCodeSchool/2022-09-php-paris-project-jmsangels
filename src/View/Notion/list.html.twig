@@ -17,13 +17,12 @@
 
         <div class="row list-group mt-5 notion-scroll">
 
-            {% for notionitem in notions %}
-
+            {% for notion in notions %}
                 <div class="container justify-content-around fs-6">
 
-                    {% if notion.id == notionitem.id %}
+                    {% if notionSelected == notion.id %}
                         <div class="list-group-item bg-green border-top-0 d-flex align-items-center justify-content-between">
-                            <a class="hover menu-item text-color-clair pe-5" href="/notion/show?id={{notionitem.id}}">{{ notionitem.name}}</a>
+                            <a class="hover text-color-clair pe-5" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
                             <div>
                                 <a class="fs-5" href="">🛠</a>
                                 <a class="fs-5" href="">🧻</a>
@@ -32,9 +31,9 @@
                     {% else %}
                         <div class="list-group-item bg-clair">
                             {% if loop.first %}
-                                <a class="hover menu-item text-color-green pe-5" href="/notion/?id={{notionitem.id}}">{{ notionitem.name}}</a>
+                                <a class="hover text-color-green pe-5" href="/notion/?id={{notion.id}}">{{ notion.name}}</a>
                             {% else %}
-                                <a class="hover menu-item border-top-0 pe-5 text-color-green" href="/notion/show?id={{notionitem.id}}">{{ notionitem.name}}</a>
+                                <a class="hover border-top-0 pe-5 text-color-green" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
                             {% endif %}
                         </div>
                     {% endif %}
