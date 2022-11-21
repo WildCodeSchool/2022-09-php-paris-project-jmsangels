@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Liste des themes
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+
+		<div class="row body flex-row">
+			<div class="col-8 d-flex justify-content-center bg-clair">
+				<div class="d-flex justify-content-center align-items-center">
+					<img class="h-75 rounded-bottom rounded-5" src="/../assets/images/homepage_img.png">
+				</div>
+			</div>
+			{% include "Theme/list.html.twig" %}
+		</div>
+	</div>
+{% endblock %}
