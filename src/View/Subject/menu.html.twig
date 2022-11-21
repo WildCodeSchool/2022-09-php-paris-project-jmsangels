@@ -6,7 +6,7 @@
 
 		<ul class="navbar-nav text-center align-items-center ">
 
-			{% for i in range(0, LIMIT_MENU) %}
+			{% for i in range(0, LIMIT_MENU-1) %}
 
 				<li class="col-2 me-3 nav-item">
 					<div class="">
@@ -18,12 +18,10 @@
 					</div>
 				</li>
 			{% endfor %}
-		</ul>
 
-		<ul class="navbar-nav  align-items-center">>
-			{% if subjects|length > LIMIT_MENU + 1 %}
+			{% if subjects|length > LIMIT_MENU %}
 
-				<li class="nav-item dropdown me-3">
+				<li class="nav-item dropdown me-5">
 					<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
 						<span class="bg-clair navbar-toggler-icon"></span>
 					</a>
@@ -31,7 +29,7 @@
 					<ul class="dropdown-menu bg-green">
 						{% for i in range(LIMIT_MENU, subjects|length) %}
 							<li>
-								<a class="menu-item text-color-white nav-link fs-6" href="/notion/list?id_subject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+								<a class="menu-item text-color-clair nav-link fs-6" href="/notion/list?id_subject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 							</li>
 
 						{% endfor %}
@@ -40,10 +38,6 @@
 				</li>
 
 			{% endif %}
-
-			<a href="">📝</a>
-			<a class="ms-3" href="">🛠</a>
-			<a class="ms-3 me-3 " href="">🧻</a>
 
 		</ul>
 	</div>
