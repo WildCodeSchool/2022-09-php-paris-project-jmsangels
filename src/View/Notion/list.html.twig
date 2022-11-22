@@ -9,7 +9,7 @@
 		{% if notions is not empty %}
 			<div class="col-6 mt-2 text-end">
 				<p class="fs-4">
-					<a href="/notion/add?subject_id={{subjectId}}">📝</a>
+					<a href="/notion/add?subject_id={{idSubjectSelected}}">📝</a>
 				</p>
 			</div>
 		{% endif %}
@@ -21,9 +21,9 @@
 		{% for notion in notions %}
 			<div class="container justify-content-around fs-6">
 
-				{% if notionSelected == notion.id %}
+				{% if idNotionSelected == notion.id %}
 					<div class="notion-list-group-item list-group-item bg-green border-top-0 d-flex align-items-center justify-content-between">
-						<a class="hover text-color-clair pe-5" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
+						<a class="text-color-clair pe-5" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
 						<div>
 							<a class="fs-5" href="">🛠</a>
 							<a class="fs-5" href="">🧻</a>
@@ -31,16 +31,11 @@
 					</div>
 				{% else %}
 					<div class="notion-list-group-item list-group-item bg-clair">
-						{% if loop.first %}
-							<a class="text-color-green pe-5" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
-						{% else %}
-							<a class="border-top-0 pe-5 text-color-green" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
-						{% endif %}
+						<a class="border-top-0 pe-5 text-color-green" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
 					</div>
 				{% endif %}
 
 			</div>
 		{% endfor %}
-
 	</div>
 </div>
