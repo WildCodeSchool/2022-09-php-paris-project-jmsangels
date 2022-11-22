@@ -127,7 +127,6 @@ class NotionController extends AbstractController
 
                 $this->notionManager->create($notion);
                 header("Location: /notion/list?subject_id=" . $subjectId);
-                exit();
             }
         }
 
@@ -193,7 +192,6 @@ class NotionController extends AbstractController
 
                 $this->notionManager->update($notion);
                 header("Location: /notion/show?id=" . $notionId);
-                exit();
             }
         }
 
