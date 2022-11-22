@@ -197,7 +197,7 @@ class NotionController extends AbstractController
             }
         }
 
-        $notion = $this->notionManager->selectOneById($notionId);
+        $notion = $this->notionManager->selectOneById((int)$notionId);
 
         return $this->twig->render(
             'Notion/update.html.twig',
@@ -206,8 +206,28 @@ class NotionController extends AbstractController
                 'subjectId' => $notion['subject_id'],
                 'errors' => $errors,
                 'notion' => $notion,
-                'titleForm' => "Ajouter une nouvelle notion"
+                'titleForm' => "Modifier une notion"
             ]
         );
+    }
+
+    public function delete(string $notionId): void
+    {
+        if (!is_numeric((int)$notionId)) {
+            header("Location: /");
+        }
+
+        $notion = $this->notionManager->selectOneById((int)$notionId);
+        $subjectId = $notion['subject_id'];
+
+        $this->notionManager->delete((int)$notionId);
+
+        $notions = $this->notionManager->selectAllBySubjectId($subjectId);
+
+        if (!empty($notions)) {
+            header("Location: /notion/show?id=" . $notions[0]['id']);
+        } else {
+            header("Location: /notion/list?subject_id=" .  $subjectId);
+        }
     }
 }
