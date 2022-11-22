@@ -15,8 +15,10 @@
 			<div class="card lecon-exemples-card bg-white">
 				<p class="h5 card-header">Exemples</p>
 				<div class="card-body">
-					<p class="card-text">{{notion.sample}}</p>
-					<img class="sample-img" src={{notion.file_image}}>
+					{% if notion is defined %}
+						<p class="card-text">{{notion.sample}}</p>
+						<img class="sample-img" src="{{notion.file_image}}">
+					{% endif %}
 				</div>
 			</div>
 		</div>
