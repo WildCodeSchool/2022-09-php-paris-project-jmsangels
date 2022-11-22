@@ -127,7 +127,6 @@ class NotionController extends AbstractController
 
                 $newIdNotion = $this->notionManager->create($notion);
                 header("Location: /notion/show?id=" . $newIdNotion);
-                return "";
             }
         }
 
