@@ -18,9 +18,9 @@ class ThemeController extends AbstractController
         $this->themeManager = new ThemeManager();
         parent::__construct();
     }
+
     public function show(string $themeId): string
     {
-
         if (!is_numeric($themeId) || $themeId == null) {
             header("Location: /");
         }

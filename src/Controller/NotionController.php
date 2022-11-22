@@ -37,7 +37,7 @@ class NotionController extends AbstractController
                 'headerTitle' => $_SESSION['theme_name'],
                 'subjects' => $subjects,
                 'notions' => $notions,
-                'subjectId' => $subjectId
+                'idSubjectSelected' => $subjectId
             ]
         );
     }
@@ -68,7 +68,8 @@ class NotionController extends AbstractController
                 'notions' => $notions,
                 'notion' => $notion,
                 'exercises' => $exercises,
-                'subjectId' => $notion['subject_id']
+                'idSubjectSelected' => $notion['subject_id'],
+                'idNotionSelected' => $notionId
             ]
         );
     }
