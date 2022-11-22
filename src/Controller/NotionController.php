@@ -83,7 +83,7 @@ class NotionController extends AbstractController
         $errors = [];
 
         if (!isset($_SESSION['theme_id']) || (!isset($_SESSION['theme_name']))) {
-            return "Session undefined";
+            header("Location: /");
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
