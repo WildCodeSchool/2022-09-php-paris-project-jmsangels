@@ -6,11 +6,13 @@
 			<p class="fs-5 ps-4">Notions</p>
 		</div>
 
-		<div class="col-6 mt-2 text-end">
-			<p class="fs-4">
-				<a>📝</a>
-			</p>
-		</div>
+		{% if notions is not empty %}
+			<div class="col-6 mt-2 text-end">
+				<p class="fs-4">
+					<a href="/notion/add?subject_id={{subjectId}}">📝</a>
+				</p>
+			</div>
+		{% endif %}
 	</div>
 
 
@@ -30,7 +32,7 @@
 				{% else %}
 					<div class="notion-list-group-item list-group-item bg-clair">
 						{% if loop.first %}
-							<a class="text-color-green pe-5" href="/notion/?id={{notion.id}}">{{ notion.name}}</a>
+							<a class="text-color-green pe-5" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
 						{% else %}
 							<a class="border-top-0 pe-5 text-color-green" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
 						{% endif %}
