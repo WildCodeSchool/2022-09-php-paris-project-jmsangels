@@ -1,0 +1,7 @@
+<div class="card-body">
+	{% for exercise in exercises %}
+		<div class="border border-5 border-bottom p-1 bg-light-grey d-flex flex-nowrap align-items-center justify-content-between">
+			<a class="bg-light-grey text-color-green fs-5" target="_blank" href="{{exercise.url}}">{{ exercise.name }}</a>
+		</div>
+	{% endfor %}
+</div>

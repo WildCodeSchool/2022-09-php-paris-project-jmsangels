@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Page Thème
+{% endblock %}
+
+{% block navbar %}
+	{% include 'Subject/menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid p-0 overflow-hidden">
+		{% include 'Notion/list.html.twig' %}
+		{% include 'Notion/notion.html.twig' %}
+	</div>
+{% endblock %}

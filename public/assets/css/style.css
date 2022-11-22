@@ -23,7 +23,7 @@
 }
 
 .home-list-group-item:hover {
-    color: var(--color-green);
+    color: blue;
     background-color: var(--color-mauve);
 }
 
@@ -31,9 +31,17 @@
     text-decoration: none;
 }
 
-.notion-list-group-item a:hover {
+.notion-list-group-item:hover {
     color: var(--color-mauve);
     background-color: var(--color-green);
+}
+
+.notion-list-group-item a:hover {
+    color: blue;
+}
+
+.subject-menu a:hover {
+    color: blue;
 }
 
 .body {
@@ -76,4 +84,38 @@
 
 .notion-margin-left {
     margin-left: 300px;
+}
+
+.nav {
+    height: 40px;
+}
+
+.lecon-exemples-card {
+    height: 600px;
+}
+
+a:hover,
+.hover:hover {
+    color: var(--color-mauve);
+}
+
+.dropdown-menu {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.form-file::before {
+    content: "Image à inclure";
+    position: absolute;
+    background-color: #eee;
+    width: 120px;
+}
+
+.button-margin-bottom {
+    margin-bottom: 200px;
+}
+
+.sample-img{
+    height: 420px;
+    width: 420px;
 }

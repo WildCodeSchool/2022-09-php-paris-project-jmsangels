@@ -22,7 +22,7 @@ class SubjectController extends AbstractController
         }
 
         if (!isset($_SESSION['theme_id']) || (!isset($_SESSION['theme_name']))) {
-             header("HTTP/1.0 404 Not Found");
+             header("Location: /");
         }
 
         $themeId = $_SESSION['theme_id'];
@@ -39,7 +39,7 @@ class SubjectController extends AbstractController
                 'headerTitle' => $themeName,
                 'subjects' => $subjects,
                 'notions' => $notions,
-                'subjectSelected' => $subjectId
+                'idSubjectSelected' => $subjectId
             ]
         );
     }
