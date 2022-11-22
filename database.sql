@@ -70,7 +70,7 @@ CREATE TABLE
 CREATE TABLE
     IF NOT EXISTS `knowledge`.`notion` (
         `id` INT NOT NULL AUTO_INCREMENT,
-        `created_at` DATETIME NULL,
+        `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
         `name` VARCHAR(45) NULL,
         `lesson` TEXT NULL,
         `sample` TEXT NULL,

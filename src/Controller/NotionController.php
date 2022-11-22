@@ -8,6 +8,9 @@ use App\Model\NotionManager;
 
 class NotionController extends AbstractController
 {
+    public const AUTHORIZED_EXTENSIONS = ['jpg', 'jpeg', 'png'];
+    public const MAX_FILE_SIZE = 1000000;
+
     private NotionManager $notionManager;
     private SubjectManager $subjectManager;
 
@@ -87,6 +90,7 @@ class NotionController extends AbstractController
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $notion = array_map("trim", $_POST);
             if (empty($_POST["name"])) {
                 $errors[] = "Champ name obligatoire";
             }
@@ -102,36 +106,26 @@ class NotionController extends AbstractController
             $fileNameImg = "";
 
             if (isset($_FILES['filename']) && $_FILES['filename']['name'] != "") {
-                $uploadDir = '../upload/';
-                $fileNameImg = $uploadDir . basename($_FILES['filename']['name']);
+                $fileNameImg = UPLOAD_DIR . basename($_FILES['filename']['name']);
                 $extension = pathinfo($_FILES['filename']['name'], PATHINFO_EXTENSION);
-                $authorizedExtensions = ['jpg', 'jpeg', 'png'];
-                $maxFileSize = 1000000;
 
-                if ((!in_array($extension, $authorizedExtensions))) {
+                if ((!in_array($extension, self::AUTHORIZED_EXTENSIONS))) {
                     $errors[] = 'Veuillez sélectionner une image de type Jpg ou Jpeg ou Png !';
                 }
 
                 if (
                     file_exists($_FILES['filename']['tmp_name']) &&
-                    filesize($_FILES['filename']['tmp_name']) > $maxFileSize
+                    filesize($_FILES['filename']['tmp_name']) > self::MAX_FILE_SIZE
                 ) {
                     $errors[] = "Votre fichier doit faire moins de 1M !";
                 }
             }
 
             if (empty($errors)) {
-                date_default_timezone_set('Europe/Paris');
-                $notion = [
-                    "created_at" => date_create()->format('Y-m-d H:i:s'),
-                    "subject_id" => $subjectId,
-                    "name" => trim($_POST['name']),
-                    "lesson" => trim($_POST['lesson']),
-                    "sample" => trim($_POST['sample']),
-                    "file_image" => $fileNameImg
-                ];
+                $notion['subject_id'] = $subjectId;
+                $notion['file_image'] = $fileNameImg;
 
-                $newIdNotion = $this->notionManager->add($notion);
+                $newIdNotion = $this->notionManager->create($notion);
                 header("Location: /notion/show?id=" . $newIdNotion);
                 return "";
             }
