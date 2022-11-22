@@ -32,4 +32,23 @@ class NotionManager extends AbstractManager
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
+
+    public function update(array $notion)
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
+            " SET name=:name, lesson=:lesson, sample=:sample, file_image=:file_image WHERE id=:notion_id");
+        $statement->bindValue('notion_id', $notion['notion_id'], \PDO::PARAM_INT);
+        $statement->bindValue('name', $notion['name'], \PDO::PARAM_STR);
+        $statement->bindValue('lesson', $notion['lesson'], \PDO::PARAM_STR);
+        $statement->bindValue('sample', $notion['sample'], \PDO::PARAM_STR);
+        $statement->bindValue('file_image', $notion['file_image'], \PDO::PARAM_STR);
+        $statement->execute();
+    }
+
+    public function remove(int $notionId): bool
+    {
+        $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:notion_id");
+        $statement->bindValue('notion_id', $notionId, \PDO::PARAM_INT);
+        return $statement->execute();
+    }
 }

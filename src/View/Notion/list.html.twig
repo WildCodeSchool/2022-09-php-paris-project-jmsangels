@@ -5,8 +5,7 @@
 		<div class="col-6 mt-2 text-center">
 			<p class="fs-5 ps-4">Notions</p>
 		</div>
-
-		{% if notions is not empty %}
+		{% if idSubjectSelected is not empty %}
 			<div class="col-6 mt-2 text-end">
 				<p class="fs-4">
 					<a href="/notion/add?subject_id={{idSubjectSelected}}">📝</a>
@@ -14,7 +13,6 @@
 			</div>
 		{% endif %}
 	</div>
-
 
 	<div class="row list-group mt-5 notion-scroll">
 
@@ -25,8 +23,8 @@
 					<div class="notion-list-group-item list-group-item bg-green border-top-0 d-flex align-items-center justify-content-between">
 						<a class="text-color-clair pe-5" href="/notion/show?id={{notion.id}}">{{ notion.name}}</a>
 						<div>
-							<a class="fs-5" href="">🛠</a>
-							<a class="fs-5" href="">🧻</a>
+							<a class="fs-5" href="/notion/edit?id={{notion.id}}">🛠</a>
+							<a class="fs-5" href="/notion/delete?id={{notion.id}}">🧻</a>
 						</div>
 					</div>
 				{% else %}

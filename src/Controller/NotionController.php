@@ -140,4 +140,92 @@ class NotionController extends AbstractController
             ]
         );
     }
+
+
+    public function edit(string $notionId): string
+    {
+        if (!is_numeric((int)$notionId)) {
+            header("Location: /");
+        }
+
+        $errors = [];
+
+        if (!isset($_SESSION['theme_id']) || (!isset($_SESSION['theme_name']))) {
+            header("Location: /");
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $notion = array_map("trim", $_POST);
+            if (empty($_POST["name"])) {
+                $errors[] = "Champ name obligatoire";
+            }
+
+            if (empty($_POST["lesson"])) {
+                $errors[] = "Champ lesson obligatoire";
+            }
+
+            if (empty($_POST["sample"])) {
+                $errors[] = "Champ sample obligatoire";
+            }
+
+            $fileNameImg = "";
+
+            if (isset($_FILES['filename']) && $_FILES['filename']['name'] != "") {
+                $fileNameImg = UPLOAD_DIR . basename($_FILES['filename']['name']);
+                $extension = pathinfo($_FILES['filename']['name'], PATHINFO_EXTENSION);
+
+                if ((!in_array($extension, self::AUTHORIZED_EXTENSIONS))) {
+                    $errors[] = 'Veuillez sélectionner une image de type Jpg ou Jpeg ou Png !';
+                }
+
+                if (
+                    file_exists($_FILES['filename']['tmp_name']) &&
+                    filesize($_FILES['filename']['tmp_name']) > self::MAX_FILE_SIZE
+                ) {
+                    $errors[] = "Votre fichier doit faire moins de 1M !";
+                }
+            }
+
+            if (empty($errors)) {
+                $notion['notion_id'] = $notionId;
+                $notion['file_image'] = $fileNameImg;
+
+                $this->notionManager->update($notion);
+                header("Location: /notion/show?id=" . $notionId);
+            }
+        }
+
+        $notion = $this->notionManager->selectOneById((int)$notionId);
+
+        return $this->twig->render(
+            'Notion/update.html.twig',
+            [
+                'headerTitle' => $_SESSION['theme_name'],
+                'subjectId' => $notion['subject_id'],
+                'errors' => $errors,
+                'notion' => $notion,
+                'titleForm' => "Modifier une notion"
+            ]
+        );
+    }
+
+    public function delete(string $notionId): void
+    {
+        if (!is_numeric((int)$notionId)) {
+            header("Location: /");
+        }
+
+        $notion = $this->notionManager->selectOneById((int)$notionId);
+        $subjectId = $notion['subject_id'];
+
+        $this->notionManager->delete((int)$notionId);
+
+        $notions = $this->notionManager->selectAllBySubjectId($subjectId);
+
+        if (!empty($notions)) {
+            header("Location: /notion/show?id=" . $notions[0]['id']);
+        } else {
+            header("Location: /notion/list?subject_id=" .  $subjectId);
+        }
+    }
 }
