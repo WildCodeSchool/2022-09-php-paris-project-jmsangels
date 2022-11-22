@@ -125,9 +125,8 @@ class NotionController extends AbstractController
                 $notion['subject_id'] = $subjectId;
                 $notion['file_image'] = $fileNameImg;
 
-                $this->notionManager->create($notion);
-                header("Location: /notion/list?subject_id=" . $subjectId);
-                exit();
+                $newIdNotion = $this->notionManager->create($notion);
+                header("Location: /notion/show?id=" . $newIdNotion);
             }
         }
 
