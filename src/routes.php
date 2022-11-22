@@ -11,5 +11,7 @@ return [
     'subject/list' => ['SubjectController', 'list', ['theme_id']],
     'notion/list' => ['NotionController', 'list', ['subject_id']],
     'notion/show' => ['NotionController', 'show', ['id']],
-    'notion/add' => ['NotionController', 'add', ['subject_id']]
+    'notion/add' => ['NotionController', 'add', ['subject_id']],
+    'notion/edit' => ['NotionController', 'edit', ['id']],
+    'notion/delete' => ['NotionController', 'delete', ['id']]
 ];
