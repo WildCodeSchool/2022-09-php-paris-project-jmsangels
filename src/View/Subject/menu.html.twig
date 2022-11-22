@@ -11,9 +11,9 @@
 				<li class="col-2 me-3 nav-item">
 					<div class="">
 						{% if subjectSelected == subjects[i].id %}
-							<a class="hover nav-link fs-6 bg-clair text-color-green" href="/notion/list?id_subject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+							<a class="hover nav-link fs-6 bg-clair text-color-green" href="/notion/list?subject_id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 						{% else %}
-							<a class="hover text-color-clair nav-link fs-6" href="/notion/list?id_subject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+							<a class="hover text-color-clair nav-link fs-6" href="/notion/list?subject_id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 						{% endif %}
 					</div>
 				</li>
@@ -31,7 +31,7 @@
 					<ul class="dropdown-menu bg-green">
 						{% for i in range(LIMIT_MENU, subjects|length) %}
 							<li>
-								<a class="menu-item text-color-white nav-link fs-6" href="/notion/list?id_subject={{ subjects[i].id }}">{{ subjects[i].name }}</a>
+								<a class="menu-item text-color-white nav-link fs-6" href="/notion/list?subject_id={{ subjects[i].id }}">{{ subjects[i].name }}</a>
 							</li>
 
 						{% endfor %}

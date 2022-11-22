@@ -9,7 +9,7 @@
 return [
     '' => ['HomeController', 'index'],
     'theme/show' => ['ThemeController', 'show', ['id']],
-    'notion/list' => ['NotionController', 'list', ['id_subject']],
+    'notion/list' => ['NotionController', 'list', ['subject_id']],
     'notion/show' => ['NotionController', 'show', ['id']],
-    'notion/add' => ['NotionController', 'add', ['id_subject']]
+    'notion/add' => ['NotionController', 'add', ['subject_id']]
 ];
