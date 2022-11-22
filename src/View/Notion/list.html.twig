@@ -5,11 +5,13 @@
 		<div class="col-6 mt-2 text-center">
 			<p class="fs-5 ps-4">Notions</p>
 		</div>
+		{% if idSubjectSelected is not empty %}
 			<div class="col-6 mt-2 text-end">
 				<p class="fs-4">
 					<a href="/notion/add?subject_id={{idSubjectSelected}}">📝</a>
 				</p>
 			</div>
+		{% endif %}
 	</div>
 
 
