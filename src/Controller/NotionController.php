@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\ExerciseManager;
 use App\Model\SubjectManager;
 use App\Model\NotionManager;
 
@@ -39,7 +40,39 @@ class NotionController extends AbstractController
                 'headerTitle' => $_SESSION['theme_name'],
                 'subjects' => $subjects,
                 'notions' => $notions,
-                'subjectId' => $subjectId
+                'idSubjectSelected' => $subjectId
+            ]
+        );
+    }
+
+    public function show(string $notionId): string
+    {
+        if (!is_numeric($notionId) || $notionId == null) {
+            header("Location: /");
+        }
+
+        if (!isset($_SESSION['theme_id']) || (!isset($_SESSION['theme_name']))) {
+            header("Location: /");
+        }
+
+        $notion = $this->notionManager->selectOneById((int)$notionId);
+
+        $notions = $this->notionManager->selectAllBySubjectId((int)$notion['subject_id']);
+        $subjects = $this->subjectManager->selectAllByThemeId((int)$_SESSION['theme_id']);
+
+        $exerciseManager = new ExerciseManager();
+        $exercises = $exerciseManager->selectAllByNotion((int)$notionId);
+
+        return $this->twig->render(
+            'Theme/index.html.twig',
+            [
+                'headerTitle' => $_SESSION['theme_name'],
+                'subjects' => $subjects,
+                'notions' => $notions,
+                'notion' => $notion,
+                'exercises' => $exercises,
+                'idSubjectSelected' => $notion['subject_id'],
+                'idNotionSelected' => $notionId
             ]
         );
     }
@@ -92,9 +125,8 @@ class NotionController extends AbstractController
                 $notion['subject_id'] = $subjectId;
                 $notion['file_image'] = $fileNameImg;
 
-                $this->notionManager->create($notion);
-                header("Location: /notion/list?subject_id=" . $subjectId);
-                exit();
+                $newIdNotion = $this->notionManager->create($notion);
+                header("Location: /notion/show?id=" . $newIdNotion);
             }
         }
 

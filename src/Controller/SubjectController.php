@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Model\SubjectManager;
-use App\Model\NotionManager;
+use App\Model\ThemeManager;
 
 class SubjectController extends AbstractController
 {
@@ -15,31 +15,25 @@ class SubjectController extends AbstractController
         parent::__construct();
     }
 
-    public function show(string $subjectId): string
+    public function list(string $themeId): string
     {
-        if (!is_numeric($subjectId) || $subjectId == null) {
+        if (!is_numeric($themeId) || $themeId == null) {
             header("Location: /");
         }
 
-        if (!isset($_SESSION['theme_id']) || (!isset($_SESSION['theme_name']))) {
-             header("HTTP/1.0 404 Not Found");
-        }
+        $themeManager = new ThemeManager();
+        $themeName = $themeManager->selectOneById((int)$themeId)['name'];
 
-        $themeId = $_SESSION['theme_id'];
-        $themeName = $_SESSION['theme_name'];
+        $_SESSION['theme_id'] = $themeId;
+        $_SESSION['theme_name'] = $themeName;
 
         $subjects = $this->subjectManager->selectAllByThemeId((int)$themeId);
-
-        $notionManager = new NotionManager();
-        $notions = $notionManager->selectAllBySubjectId((int)$subjectId);
 
         return $this->twig->render(
             'Theme/index.html.twig',
             [
                 'headerTitle' => $themeName,
                 'subjects' => $subjects,
-                'notions' => $notions,
-                'subjectSelected' => $subjectId
             ]
         );
     }
