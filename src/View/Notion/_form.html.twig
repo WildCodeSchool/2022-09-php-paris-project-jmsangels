@@ -9,7 +9,7 @@
 			</div>
 		{% endif %}
 		<div class="row d-flex justify-content-center">
-			<a class="text-end" href="/notion/list?id_subject={{subjectId}}">retour à la page précédente</a>
+			<a class="text-end" href="/notion/list?subject_id={{subjectId}}">retour à la page précédente</a>
 		</div>
 
 		<p class="pt-4 text-center h1 bg-clair">{{ titleForm }}</p>
@@ -22,7 +22,7 @@
 					<span class="col-4 input-group-text fs-4 text-color-clair bg-green">
 						Nom de la notion
 					</span>
-					<input type="text" class="form-control" name="name" placeholder="nom notion" value="{{ notionName }}">
+					<input type="text" class="form-control" name="name" value="{{ notionName }}">
 				</div>
 
 

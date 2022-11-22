@@ -19,7 +19,7 @@ class NotionManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-    public function add(array $notion)
+    public function add(array $notion): int
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
             " (`subject_id`, `name`, `lesson`, `sample`, `created_at`, `file_image`) 
@@ -30,6 +30,7 @@ class NotionManager extends AbstractManager
         $statement->bindValue('sample', $notion['sample'], \PDO::PARAM_STR);
         $statement->bindValue('created_at', $notion['created_at'], \PDO::PARAM_STR);
         $statement->bindValue('file_image', $notion['file_image'], \PDO::PARAM_STR);
-        return $statement->execute();
+        $statement->execute();
+        return $this->pdo->lastInsertId();
     }
 }

@@ -131,11 +131,12 @@ class NotionController extends AbstractController
                     "file_image" => $fileNameImg
                 ];
 
-                $this->notionManager->add($notion);
-                header("Location: /notion/list?id_subject=" . $subjectId);
+                $newIdNotion = $this->notionManager->add($notion);
+                header("Location: /notion/show?id=" . $newIdNotion);
                 return "";
             }
         }
+
         return $this->twig->render(
             'Notion/add.html.twig',
             [
